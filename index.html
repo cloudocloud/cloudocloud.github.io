@@ -178,34 +178,57 @@
         <section class="hub-section" id="hub" data-reveal>
           <div class="section-intro">
             <p class="section-label">Hub</p>
-            <h2>Articles, notes, and small studies collected like a living magazine.</h2>
+            <h2>Food, portraits, music, and interiors gathered as vivid travel fragments.</h2>
           </div>
 
-          <div class="hub-grid">
-            <button class="article-card" type="button" data-article="studio-letter" data-reveal data-parallax data-depth="0.08">
-              <img class="article-card__image" src="./Images/2_work 06.png" alt="Studio letter article cover" />
-              <span class="article-card__tag">Our Story</span>
-              <h3>A message from the studio on building a softer, clearer portfolio</h3>
-              <p>Recent reflections on visual restraint, atmosphere, and narrative pacing.</p>
-            </button>
-            <button class="article-card article-card--oval" type="button" data-article="digital-observation" data-reveal data-parallax data-depth="0.1">
-              <img class="article-card__image" src="./Images/2_work 04.png" alt="Digital observation article cover" />
-              <span class="article-card__tag">Urban quality assessment</span>
-              <h3>Measuring what we care about through images, notes, and digital tools</h3>
-              <p>A concise article format for turning process into an elegant, readable archive.</p>
-            </button>
-            <button class="article-card" type="button" data-article="city-gap" data-reveal data-parallax data-depth="0.12">
-              <img class="article-card__image" src="./Images/1_front 01.png" alt="City gap article cover" />
-              <span class="article-card__tag">City making</span>
-              <h3>Closing the gap between cinematic presentation and useful information</h3>
-              <p>How immersive visuals can still support clarity, trust, and practical reading.</p>
-            </button>
-            <button class="article-card" type="button" data-article="field-journal" data-reveal data-parallax data-depth="0.14">
-              <img class="article-card__image" src="./Images/2_work 05.png" alt="Field journal article cover" />
-              <span class="article-card__tag">Field Journal</span>
-              <h3>Trip fragments collected as a visual system for future stories</h3>
-              <p>Notes from recent travel that now feed the portfolio's rhythm, colors, and framing.</p>
-            </button>
+          <div class="hub-carousel" data-hub-carousel>
+            <div class="hub-carousel__viewport" data-hub-viewport>
+              <div class="hub-grid" data-hub-track>
+                <button class="article-card" type="button" data-article="studio-letter" data-reveal data-parallax data-depth="0.08">
+                  <img class="article-card__image" src="./Images/hub01.jpeg" alt="Paper cup and fried snacks held inside a warm restaurant" />
+                  <span class="article-card__tag">Food Note</span>
+                  <h3>Fried snacks and coffee in hand, caught in the warmth of a small night counter</h3>
+                  <p>A close-up food scene about warmth, texture, and the quick rituals of eating while moving.</p>
+                </button>
+                <button class="article-card article-card--oval" type="button" data-article="digital-observation" data-reveal data-parallax data-depth="0.1">
+                  <img class="article-card__image" src="./Images/hub02.jpeg" alt="Portrait in front of a restaurant entrance at night" />
+                  <span class="article-card__tag">Portrait</span>
+                  <h3>A restaurant doorway portrait shaped by tiled walls, pavement, and evening light</h3>
+                  <p>A travel portrait where the street setting matters as much as the person in the frame.</p>
+                </button>
+                <button class="article-card" type="button" data-article="city-gap" data-reveal data-parallax data-depth="0.12">
+                  <img class="article-card__image" src="./Images/hub03.jpeg" alt="Live concert stage with green and blue lights at night" />
+                  <span class="article-card__tag">Live Scene</span>
+                  <h3>Blue-green stage light, a night crowd, and the shared energy of a live performance</h3>
+                  <p>A concert scene that turns light, sound, and audience attention into one temporary space.</p>
+                </button>
+                <button class="article-card" type="button" data-article="field-journal" data-reveal data-parallax data-depth="0.14">
+                  <img class="article-card__image" src="./Images/hub04.jpeg" alt="Seafood paella with lemons on a dining table" />
+                  <span class="article-card__tag">Shared Table</span>
+                  <h3>Seafood paella, lemon wedges, and a table arranged around sharing</h3>
+                  <p>A dining image about abundance, color, and the social rhythm built around one large dish.</p>
+                </button>
+                <button class="article-card article-card--oval" type="button" data-article="warm-interior" data-reveal data-parallax data-depth="0.16">
+                  <img class="article-card__image" src="./Images/hub05.jpeg" alt="Classic bar interior with hanging lamps and tiled counter" />
+                  <span class="article-card__tag">Interior Mood</span>
+                  <h3>Globe lamps, green tile, and a bar interior layered with warm hospitality</h3>
+                  <p>An interior study focused on lighting, material rhythm, and the comfort of classic bar spaces.</p>
+                </button>
+              </div>
+            </div>
+            <div class="hub-carousel__footer">
+              <div class="hub-carousel__progress" aria-hidden="true">
+                <span data-hub-progress></span>
+              </div>
+              <div class="hub-carousel__buttons">
+                <button class="hub-carousel__button" type="button" data-hub-dir="-1" aria-label="Previous Hub article">
+                  <span>&larr;</span>
+                </button>
+                <button class="hub-carousel__button" type="button" data-hub-dir="1" aria-label="Next Hub article">
+                  <span>&rarr;</span>
+                </button>
+              </div>
+            </div>
           </div>
         </section>
 

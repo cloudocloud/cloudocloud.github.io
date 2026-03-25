@@ -1,6 +1,10 @@
 const slides = Array.from(document.querySelectorAll(".slide"));
 const progress = document.querySelector(".slider-progress span");
 const controls = Array.from(document.querySelectorAll(".slider-button"));
+const hubTrack = document.querySelector("[data-hub-track]");
+const hubViewport = document.querySelector("[data-hub-viewport]");
+const hubButtons = Array.from(document.querySelectorAll("[data-hub-dir]"));
+const hubProgress = document.querySelector("[data-hub-progress]");
 const articleCards = Array.from(document.querySelectorAll(".article-card"));
 const modal = document.querySelector(".article-modal");
 const modalPanel = document.querySelector(".article-modal__panel");
@@ -103,79 +107,98 @@ const articles = {
     ]
   },
   "studio-letter": {
-    kicker: "Latest Article / Our Story",
-    title: "A message from the studio on building a softer, clearer portfolio for cloudocloud.",
-    sector: "Editorial",
-    region: "Seoul",
-    timespan: "March 2026",
-    contact: "Editor, cloudocloud\nhello@cloudocloud.com",
-    services: "Writing direction\nArt direction\nPortfolio strategy",
-    client: "cloudocloud",
+    kicker: "Latest Article / Food Note",
+    title: "Fried snacks and coffee in hand, framed by the warmth of a small restaurant at night.",
+    sector: "Food Culture",
+    region: "Lisbon",
+    timespan: "2026",
+    contact: "Travel notes desk\nhello@cloudocloud.com",
+    services: "Photo curation\nEditorial writing\nAtmosphere mapping",
+    client: "Hub archive",
     summary:
-      "This letter explains why the site prioritizes atmosphere, sequencing, and visual calm. It frames the portfolio not as a static gallery but as a readable publication.",
-    image: "./Images/2_work 06.png",
-    imageAlt: "Studio editorial portrait",
+      "A food note built from one handheld scene: hot fried snacks, a paper cup of coffee, and the glow of a small counter space behind them.",
+    image: "./Images/hub01.jpeg",
+    imageAlt: "Paper cup and fried snacks held inside a warm restaurant",
     paragraphs: [
-      "Many portfolio sites can feel either too minimal to be informative or too dense to be memorable. This approach tries to hold both: strong mood on first contact, followed by structured detail once a reader chooses to go deeper.",
-      "The new article view supports that strategy. Overview cards remain light and image-driven, but the modal opens into a layout with enough hierarchy to carry real text.",
-      "This makes the site more useful not only for browsing but also for presentations, submissions, and sharing individual stories."
+      "What makes this image memorable is its closeness. The viewer is not looking at a plated meal from a distance but holding it, which makes the scene feel immediate and lived rather than arranged.",
+      "The crisp texture of the fried snacks, the paper cup, and the wood-and-shelf backdrop turn a simple purchase into a fuller travel memory. It captures the feeling of stepping into a small place, ordering quickly, and carrying warmth away in your hands.",
+      "In the Hub, this kind of image works as a compact fragment of city life, where food becomes a way of remembering atmosphere as much as taste."
     ]
   },
   "digital-observation": {
-    kicker: "Latest Article / Urban Quality Assessment",
-    title: "Measuring what we care about through images, notes, and digital observation tools.",
-    sector: "Research",
-    region: "Global",
-    timespan: "2025 - 2026",
-    contact: "Research desk\nhello@cloudocloud.com",
-    services: "Data storytelling\nResearch editing\nInterface design",
-    client: "Internal publication",
+    kicker: "Latest Article / Portrait",
+    title: "A doorway portrait where the restaurant entrance, pavement, and pose all shape the image.",
+    sector: "Travel Portrait",
+    region: "Lisbon",
+    timespan: "2026",
+    contact: "Field journal desk\nhello@cloudocloud.com",
+    services: "Portrait framing\nTravel editing\nLocation notes",
+    client: "Hub archive",
     summary:
-      "A recent article on how field observations can remain human and situational even when supported by digital systems, tags, and structured archives.",
-    image: "./Images/2_work 04.png",
-    imageAlt: "Research visual",
+      "A portrait note about how a person, a doorway, and the surrounding street can work together to describe a place.",
+    image: "./Images/hub02.jpeg",
+    imageAlt: "Portrait in front of a restaurant entrance at night",
     paragraphs: [
-      "The point of digital tooling is not to flatten urban experience into metrics, but to help retain patterns that might otherwise disappear after a site visit. Images, notes, and tags become a memory structure.",
-      "For the portfolio, this topic also mirrors the interface design. The article detail layout keeps key facts close to the title while allowing longer narrative text to breathe below.",
-      "It is a format meant for revisiting, not just scanning."
+      "The photograph is strongest because it does not isolate the subject from the setting. The restaurant sign, textured wall, open doorway, and patterned pavement all stay visible enough to build context around the pose.",
+      "Instead of reading as a generic portrait, the image feels tied to a specific night and a specific address. The entrance behind the subject gives the frame both depth and a clear sense of arrival.",
+      "That balance between person and place is what makes the image useful in the Hub, where travel is recorded through recognizable scenes rather than abstract impressions."
     ]
   },
   "city-gap": {
-    kicker: "Latest Article / City Making",
-    title: "Closing the gap between cinematic presentation and practical, useful information.",
-    sector: "City Making",
-    region: "Middle East / Asia",
-    timespan: "2024 - 2026",
-    contact: "Editorial team\nhello@cloudocloud.com",
-    services: "Narrative systems\nContent architecture\nCase study layout",
-    client: "Knowledge hub series",
+    kicker: "Latest Article / Live Scene",
+    title: "Blue-green stage light, a night crowd, and the temporary architecture of a live concert.",
+    sector: "Music Culture",
+    region: "Coimbra",
+    timespan: "2026",
+    contact: "Culture notes desk\nhello@cloudocloud.com",
+    services: "Event photography\nLight study\nEditorial sequencing",
+    client: "Hub archive",
     summary:
-      "This piece explores how immersive interfaces can still support everyday comprehension by pairing strong imagery with clear metadata and concise language.",
-    image: "./Images/1_front 01.png",
-    imageAlt: "Architectural city scene",
+      "A live scene focused on stage light, crowd silhouettes, and the way a concert moment reorganizes public space.",
+    image: "./Images/hub03.jpeg",
+    imageAlt: "Live concert stage with green and blue lights at night",
     paragraphs: [
-      "Readers often decide within seconds whether a portfolio feels trustworthy. Much of that judgment comes from rhythm: how titles break, how space is used, and whether details appear when expected.",
-      "The detailed article view makes that rhythm explicit. It lets the portfolio hold larger ideas without forcing everything into the overview cards.",
-      "As a result, the homepage stays elegant while deeper pages remain genuinely informative."
+      "The image reads first through color. Blue and green light spill across the stage canopy, screen, and crowd, turning the whole venue into a temporary field of brightness and shadow.",
+      "Just as important are the audience silhouettes in the foreground. They anchor the scale of the performance and make the concert feel collective, not just observed from afar.",
+      "In the Hub, the photograph expands the archive from meals and interiors into public cultural life, showing how a trip is also remembered through sound, light, and shared attention."
     ]
   },
   "field-journal": {
-    kicker: "Latest Article / Field Journal",
-    title: "Trip fragments become a visual system for future stories, pages, and project narratives.",
-    sector: "Field Journal",
-    region: "Europe / East Asia",
-    timespan: "2023 - 2026",
-    contact: "Journal desk\nhello@cloudocloud.com",
-    services: "Travel archive\nEditorial curation\nImage sequencing",
-    client: "cloudocloud trips",
+    kicker: "Latest Article / Shared Table",
+    title: "Seafood paella, lemon wedges, and a shared table arranged around one large dish.",
+    sector: "Dining Note",
+    region: "Lisbon",
+    timespan: "2026",
+    contact: "Food journal desk\nhello@cloudocloud.com",
+    services: "Travel archive\nPhoto editing\nNarrative curation",
+    client: "Hub archive",
     summary:
-      "A compact article on how travel notes move from private reference material into a usable visual language for the wider portfolio.",
-    image: "./Images/2_work 05.png",
-    imageAlt: "Field journal visual",
+      "A dining note about color, abundance, and the visual choreography created when one pan anchors the whole table.",
+    image: "./Images/hub04.jpeg",
+    imageAlt: "Seafood paella with lemons on a dining table",
     paragraphs: [
-      "Photographs taken in motion often reveal compositional instincts before a formal project does. Repeated colors, shapes, and edges accumulate into a vocabulary.",
-      "This article explains how those fragments are sorted and reused later across case studies, article cards, and the wider site identity.",
-      "It also connects the Hub and Trip sections, making the portfolio feel more continuous."
+      "The paella fills the frame with strong visual structure: a black pan, warm rice tones, shellfish, prawns, and bright wedges of lemon placed across the surface. It is a dish that almost composes itself.",
+      "The surrounding details matter too. The serving spoons, side plate, and cropped table edges suggest a meal already being shared, which gives the image social movement instead of still-life distance.",
+      "That sense of gathering is what makes the photograph fit naturally in the Hub, where everyday scenes are kept for their atmosphere as much as their subject."
+    ]
+  },
+  "warm-interior": {
+    kicker: "Latest Article / Interior Mood",
+    title: "Globe lamps, green tile, and a bar interior layered with warmth, order, and hospitality.",
+    sector: "Interior Study",
+    region: "Lisbon",
+    timespan: "2026",
+    contact: "Interior notes desk\nhello@cloudocloud.com",
+    services: "Spatial observation\nMaterial reading\nEditorial curation",
+    client: "Hub archive",
+    summary:
+      "An interior study of a classic bar where hanging lights, tiled counters, and wood surfaces build a rich but comfortable atmosphere.",
+    image: "./Images/hub05.jpeg",
+    imageAlt: "Classic bar interior with hanging lamps and tiled counter",
+    paragraphs: [
+      "This room stands out because its details repeat with confidence. Globe pendant lights, dark timber framing, green tile, and patterned flooring give the interior a clear rhythm without making it feel rigid.",
+      "The bar counter anchors the foreground while shelving, mirrors, and seating deepen the image behind it. Even in a busy setting, the organization of the room remains easy to read.",
+      "As a Hub entry, the photograph works as a reminder that hospitality interiors often feel memorable not because of one dramatic gesture, but because many materials and lighting choices work together."
     ]
   }
 };
@@ -184,6 +207,8 @@ let currentIndex = 0;
 let autoplayId = null;
 let currentArticleId = null;
 let revealObserver = null;
+let currentHubIndex = 0;
+let hubScrollTimeoutId = null;
 
 function setupScrollReveal() {
   if (!revealElements.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -342,6 +367,121 @@ function restartAutoplay() {
   }, 5500);
 }
 
+function getHubItems() {
+  if (!hubTrack) {
+    return [];
+  }
+
+  return Array.from(hubTrack.querySelectorAll(".article-card"));
+}
+
+function getHubVisibleCount() {
+  if (window.matchMedia("(max-width: 760px)").matches) {
+    return 1;
+  }
+
+  if (window.matchMedia("(max-width: 1100px)").matches) {
+    return 2;
+  }
+
+  return 4;
+}
+
+function syncHubControls() {
+  const hubItems = getHubItems();
+
+  if (!hubItems.length || !hubProgress) {
+    return;
+  }
+
+  const visibleCount = Math.min(getHubVisibleCount(), hubItems.length);
+  const maxIndex = Math.max(hubItems.length - visibleCount, 0);
+  const safeIndex = Math.min(currentHubIndex, maxIndex);
+  const progressRatio = visibleCount / hubItems.length;
+  const progressWidth = `${progressRatio * 100}%`;
+  const progressOffset = maxIndex === 0 ? 0 : (((safeIndex / maxIndex) * (1 - progressRatio)) / progressRatio) * 100;
+
+  currentHubIndex = safeIndex;
+  hubProgress.style.width = progressWidth;
+  hubProgress.style.transform = `translateX(${progressOffset}%)`;
+
+  hubButtons.forEach((button) => {
+    const direction = Number(button.dataset.hubDir);
+    button.disabled = maxIndex === 0 || (direction < 0 ? safeIndex === 0 : safeIndex === maxIndex);
+  });
+}
+
+function scrollHubTo(index, behavior = "smooth") {
+  const hubItems = getHubItems();
+
+  if (!hubTrack || !hubItems.length) {
+    return;
+  }
+
+  const visibleCount = Math.min(getHubVisibleCount(), hubItems.length);
+  const maxIndex = Math.max(hubItems.length - visibleCount, 0);
+  const nextIndex = Math.max(0, Math.min(index, maxIndex));
+  const targetItem = hubItems[nextIndex];
+
+  currentHubIndex = nextIndex;
+
+  if (targetItem) {
+    hubTrack.scrollTo({
+      left: targetItem.offsetLeft,
+      behavior
+    });
+  }
+
+  syncHubControls();
+}
+
+function moveHub(direction) {
+  const step = getHubVisibleCount();
+  scrollHubTo(currentHubIndex + direction * step);
+}
+
+function updateHubFromScroll() {
+  const hubItems = getHubItems();
+
+  if (!hubTrack || !hubItems.length) {
+    return;
+  }
+
+  let nearestIndex = 0;
+  let nearestDistance = Number.POSITIVE_INFINITY;
+
+  hubItems.forEach((item, index) => {
+    const distance = Math.abs(item.offsetLeft - hubTrack.scrollLeft);
+
+    if (distance < nearestDistance) {
+      nearestDistance = distance;
+      nearestIndex = index;
+    }
+  });
+
+  currentHubIndex = nearestIndex;
+  syncHubControls();
+}
+
+function setupHubCarousel() {
+  if (!hubTrack || !hubViewport) {
+    return;
+  }
+
+  hubButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      moveHub(Number(button.dataset.hubDir));
+    });
+  });
+
+  hubTrack.addEventListener("scroll", () => {
+    window.clearTimeout(hubScrollTimeoutId);
+    hubScrollTimeoutId = window.setTimeout(updateHubFromScroll, 90);
+  }, { passive: true });
+
+  scrollHubTo(0, "auto");
+}
+
 function fillArticle(article) {
   if (!articleFields.kicker) {
     return;
@@ -461,10 +601,14 @@ if (slides.length) {
   restartAutoplay();
 }
 
+setupHubCarousel();
 setupSatelliteGlobes();
 
 setupScrollReveal();
 updateParallax();
 
 window.addEventListener("scroll", updateParallax, { passive: true });
-window.addEventListener("resize", updateParallax);
+window.addEventListener("resize", () => {
+  updateParallax();
+  scrollHubTo(currentHubIndex, "auto");
+});
