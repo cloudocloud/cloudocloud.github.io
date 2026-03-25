@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cloudocloud</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="front-page">
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="./index.html">cloudocloud</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="./works.html">Works</a>
+          <a href="./trip.html">Trip</a>
+          <a href="./hub.html">Hub</a>
+          <a href="./about.html">About us</a>
+        </nav>
+        <a class="contact-button" href="https://docs.google.com/forms/d/e/1FAIpQLSdvVlzoiotK0UXaEOR_IEA80YfqxHy_Pq2V7vDCIdHkmlmjFQ/viewform?usp=header" target="_blank" rel="noreferrer">contact us</a>
+      </header>
+
+      <main id="top">
+        <section class="hero" data-reveal data-parallax-group>
+          <div class="hero-slider">
+            <article class="slide is-active">
+              <img src="./Images/laseine.jpeg" alt="Sunset view over the Seine in Paris" />
+              <div class="slide-overlay"></div>
+              <div class="slide-copy" data-parallax data-depth="0.14">
+                <p class="eyebrow">Travel Scene 01</p>
+                <h1>Evening light, river movement, and a city slowly settling into night.</h1>
+                <p>
+                  A quiet front-page image from Paris, where the skyline, bridge,
+                  and sunset atmosphere frame the beginning of the portfolio.
+                </p>
+              </div>
+            </article>
+            <article class="slide">
+              <img src="./Images/jazz.jpeg" alt="Night street scene outside a jazz club" />
+              <div class="slide-overlay"></div>
+              <div class="slide-copy" data-parallax data-depth="0.14">
+                <p class="eyebrow">Travel Scene 02</p>
+                <h1>A neon street corner filled with music, color, and passing conversations.</h1>
+                <p>
+                  A lively nighttime frame that adds warmth and rhythm to the
+                  opening sequence of the site.
+                </p>
+              </div>
+            </article>
+            <article class="slide">
+              <img src="./Images/louis.jpeg" alt="Modern architectural facade under a clear sky" />
+              <div class="slide-overlay"></div>
+              <div class="slide-copy" data-parallax data-depth="0.14">
+                <p class="eyebrow">Travel Scene 03</p>
+                <h1>Glass, structure, and open space captured in a crisp architectural study.</h1>
+                <p>
+                  The sequence shifts into a calmer daytime view with strong lines,
+                  texture, and spatial clarity.
+                </p>
+              </div>
+            </article>
+            <article class="slide">
+              <img src="./Images/andomusee.jpeg" alt="Interior of a domed museum space" />
+              <div class="slide-overlay"></div>
+              <div class="slide-copy" data-parallax data-depth="0.14">
+                <p class="eyebrow">Travel Scene 04</p>
+                <h1>A circular museum interior where scale, shadow, and silence meet.</h1>
+                <p>
+                  A final opening image that introduces a more reflective mood
+                  before the rest of the portfolio unfolds.
+                </p>
+              </div>
+            </article>
+          </div>
+
+          <div class="slider-controls">
+            <div class="slider-progress" aria-hidden="true">
+              <span></span>
+            </div>
+            <div class="slider-buttons">
+              <button class="slider-button" type="button" data-dir="-1" aria-label="Previous slide">
+                <span>&larr;</span>
+              </button>
+              <button class="slider-button" type="button" data-dir="1" aria-label="Next slide">
+                <span>&rarr;</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="works-section" id="works" data-reveal>
+          <div class="section-intro">
+            <p class="section-label">Works</p>
+            <h2>A leading portfolio from eye-level details to wide cultural context.</h2>
+          </div>
+
+          <div class="works-grid">
+            <button class="article-card article-card--oval" type="button" data-article="waterside-atlas" data-reveal data-parallax data-depth="0.08">
+              <img class="article-card__image" src="./Images/work_sample01.jpeg" alt="Coffee bar interior for works article cover" />
+              <div class="article-card__tags">
+                <span class="article-card__tag">Architecture</span>
+                <span class="article-card__tag">Branding</span>
+              </div>
+              <h3>Waterside Atlas for a slow residential waterfront</h3>
+              <p>A spatial concept article about density, softness, and public-facing circulation.</p>
+            </button>
+            <button class="article-card article-card--oval" type="button" data-article="chromatic-pavilion" data-reveal data-parallax data-depth="0.1">
+              <img class="article-card__image" src="./Images/work_sample02.jpeg" alt="Red architectural building for works article cover" />
+              <div class="article-card__tags">
+                <span class="article-card__tag">Spatial Design</span>
+                <span class="article-card__tag">Exhibition</span>
+              </div>
+              <h3>Chromatic Pavilion as a social landmark for gathering</h3>
+              <p>An installation study using color and shade to invite pause, play, and encounter.</p>
+            </button>
+            <button class="article-card" type="button" data-article="play-loop" data-reveal data-parallax data-depth="0.12">
+              <img class="article-card__image" src="./Images/work_sample03.jpeg" alt="Garden courtyard architecture for works article cover" />
+              <div class="article-card__tags">
+                <span class="article-card__tag">Public Space</span>
+                <span class="article-card__tag">Research</span>
+              </div>
+              <h3>Play Loop strategy for healthier everyday city routines</h3>
+              <p>A recent article focused on family movement, visibility, and informal play networks.</p>
+            </button>
+            <button class="article-card" type="button" data-article="urban-texture" data-reveal data-parallax data-depth="0.14">
+              <img class="article-card__image" src="./Images/work_sample04.jpeg" alt="Portrait in interior setting for works article cover" />
+              <div class="article-card__tags">
+                <span class="article-card__tag">Photography</span>
+                <span class="article-card__tag">Urban Archive</span>
+              </div>
+              <h3>Urban Texture Notes documenting color, signage, and local identity</h3>
+              <p>An editorial archive built from layered facades, streetscapes, and lived-in materials.</p>
+            </button>
+          </div>
+        </section>
+
+        <section class="trip-section" id="trip" data-reveal data-parallax-group>
+          <div class="trip-copy" data-parallax data-depth="0.1">
+            <p class="section-label">Trip</p>
+            <h2>A truly global practice shaped by movement and observation.</h2>
+            <p>
+              The trip archive traces cities, landscapes, and encounters that have
+              influenced the studio's visual language. Each pin marks a stop that
+              expanded our sense of material, climate, and pace.
+            </p>
+            <div class="trip-stats">
+              <div>
+                <strong>38</strong>
+                <span>cities visited</span>
+              </div>
+              <div>
+                <strong>3</strong>
+                <span>focus regions</span>
+              </div>
+              <div>
+                <strong>180+</strong>
+                <span>mapped moments</span>
+              </div>
+            </div>
+          </div>
+          <div class="trip-map-card" data-parallax data-depth="0.16">
+            <div
+              class="trip-globe-webgl"
+              data-globe-scene
+              tabindex="0"
+              aria-label="Rotating globe with satellite texture and city pins"
+              role="region"
+            ></div>
+          </div>
+        </section>
+
+        <section class="hub-section" id="hub" data-reveal>
+          <div class="section-intro">
+            <p class="section-label">Hub</p>
+            <h2>Articles, notes, and small studies collected like a living magazine.</h2>
+          </div>
+
+          <div class="hub-grid">
+            <button class="article-card" type="button" data-article="studio-letter" data-reveal data-parallax data-depth="0.08">
+              <img class="article-card__image" src="./Images/2_work 06.png" alt="Studio letter article cover" />
+              <span class="article-card__tag">Our Story</span>
+              <h3>A message from the studio on building a softer, clearer portfolio</h3>
+              <p>Recent reflections on visual restraint, atmosphere, and narrative pacing.</p>
+            </button>
+            <button class="article-card article-card--oval" type="button" data-article="digital-observation" data-reveal data-parallax data-depth="0.1">
+              <img class="article-card__image" src="./Images/2_work 04.png" alt="Digital observation article cover" />
+              <span class="article-card__tag">Urban quality assessment</span>
+              <h3>Measuring what we care about through images, notes, and digital tools</h3>
+              <p>A concise article format for turning process into an elegant, readable archive.</p>
+            </button>
+            <button class="article-card" type="button" data-article="city-gap" data-reveal data-parallax data-depth="0.12">
+              <img class="article-card__image" src="./Images/1_front 01.png" alt="City gap article cover" />
+              <span class="article-card__tag">City making</span>
+              <h3>Closing the gap between cinematic presentation and useful information</h3>
+              <p>How immersive visuals can still support clarity, trust, and practical reading.</p>
+            </button>
+            <button class="article-card" type="button" data-article="field-journal" data-reveal data-parallax data-depth="0.14">
+              <img class="article-card__image" src="./Images/2_work 05.png" alt="Field journal article cover" />
+              <span class="article-card__tag">Field Journal</span>
+              <h3>Trip fragments collected as a visual system for future stories</h3>
+              <p>Notes from recent travel that now feed the portfolio's rhythm, colors, and framing.</p>
+            </button>
+          </div>
+        </section>
+
+      </main>
+
+      <aside class="article-modal" aria-hidden="true">
+        <div class="article-modal__backdrop" data-close-modal></div>
+        <article class="article-modal__panel" role="dialog" aria-modal="true" aria-labelledby="article-title">
+          <button class="article-modal__close" type="button" data-close-modal aria-label="Close article">
+            <span>&times;</span>
+          </button>
+
+          <div class="article-modal__head">
+            <p class="article-modal__kicker" id="article-kicker"></p>
+            <h2 class="article-modal__title" id="article-title"></h2>
+          </div>
+
+          <div class="article-modal__meta">
+            <div class="article-meta-item">
+              <span>Sector</span>
+              <strong id="article-sector"></strong>
+            </div>
+            <div class="article-meta-item">
+              <span>Region</span>
+              <strong id="article-region"></strong>
+            </div>
+            <div class="article-meta-item">
+              <span>Timespan</span>
+              <strong id="article-timespan"></strong>
+            </div>
+            <div class="article-share">
+              <span>Share</span>
+              <div class="article-share__buttons">
+                <button class="share-button" type="button" data-share="copy" aria-label="Copy article link">⤴</button>
+                <button class="share-button" type="button" data-share="linkedin" aria-label="Share on LinkedIn">in</button>
+                <button class="share-button" type="button" data-share="x" aria-label="Share on X">X</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="article-modal__body">
+            <div class="article-sidebar">
+              <div class="article-sidebar__block">
+                <span>Contact</span>
+                <p id="article-contact"></p>
+              </div>
+              <div class="article-sidebar__block">
+                <span>Services</span>
+                <p id="article-services"></p>
+              </div>
+              <div class="article-sidebar__block">
+                <span>Client</span>
+                <p id="article-client"></p>
+              </div>
+            </div>
+
+            <div class="article-content">
+              <p class="article-summary" id="article-summary"></p>
+              <img class="article-hero-image" id="article-image" alt="" />
+              <div class="article-paragraphs" id="article-paragraphs"></div>
+            </div>
+          </div>
+        </article>
+      </aside>
+
+      <footer class="site-footer">
+        <div class="site-footer__lead">
+          <p class="footer-kicker">cloudocloud</p>
+          <h2 class="footer-title">Spatial stories, visual research, and thoughtful digital experiences.</h2>
+        </div>
+        <div class="site-footer__meta">
+          <div class="footer-column">
+            <p class="footer-heading">Services</p>
+            <p>Spatial Strategy</p>
+            <p>Content Direction</p>
+            <p>Community Planning</p>
+          </div>
+          <div class="footer-column">
+            <p class="footer-heading">Follow</p>
+            <a href="https://instagram.com/cloud.o.cloud" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="./about.html">About us</a>
+          </div>
+          <div class="footer-column">
+            <p class="footer-heading">Based in</p>
+            <p>Seoul, Rep. of Korea</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdvVlzoiotK0UXaEOR_IEA80YfqxHy_Pq2V7vDCIdHkmlmjFQ/viewform?usp=header" target="_blank" rel="noreferrer">Contact</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/globe.gl"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

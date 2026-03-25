@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cloudocloud | Hub</title>
+    <link rel="stylesheet" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="./index.html">cloudocloud</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="./works.html">Works</a>
+          <a href="./trip.html">Trip</a>
+          <a class="is-active" href="./hub.html">Hub</a>
+          <a href="./about.html">About us</a>
+        </nav>
+        <a class="contact-button" href="https://docs.google.com/forms/d/e/1FAIpQLSdvVlzoiotK0UXaEOR_IEA80YfqxHy_Pq2V7vDCIdHkmlmjFQ/viewform?usp=header" target="_blank" rel="noreferrer">contact us</a>
+      </header>
+
+      <main class="detail-main">
+        <section class="detail-hero">
+          <div class="detail-copy">
+            <p class="section-label">Hub</p>
+            <h1>Articles, essays, and short studies collected like an ongoing magazine.</h1>
+            <p>
+              The hub page holds recent writing and research fragments, each designed
+              to open into a detailed reading view with strong editorial hierarchy.
+            </p>
+          </div>
+          <img class="detail-hero-image" src="./Images/2_work 04.png" alt="Knowledge hub feature image" />
+        </section>
+
+        <section class="hub-section">
+          <div class="hub-grid">
+            <button class="article-card" type="button" data-article="studio-letter">
+              <img class="article-card__image" src="./Images/2_work 06.png" alt="Studio letter article cover" />
+              <span class="article-card__tag">Our Story</span>
+              <h3>A message from the studio on building a softer, clearer portfolio</h3>
+              <p>Recent reflections on visual restraint, atmosphere, and narrative pacing.</p>
+            </button>
+            <button class="article-card article-card--oval" type="button" data-article="digital-observation">
+              <img class="article-card__image" src="./Images/2_work 04.png" alt="Digital observation article cover" />
+              <span class="article-card__tag">Urban quality assessment</span>
+              <h3>Measuring what we care about through images, notes, and digital tools</h3>
+              <p>A concise article format for turning process into an elegant, readable archive.</p>
+            </button>
+            <button class="article-card" type="button" data-article="city-gap">
+              <img class="article-card__image" src="./Images/1_front 01.png" alt="City gap article cover" />
+              <span class="article-card__tag">City making</span>
+              <h3>Closing the gap between cinematic presentation and useful information</h3>
+              <p>How immersive visuals can still support clarity, trust, and practical reading.</p>
+            </button>
+            <button class="article-card" type="button" data-article="field-journal">
+              <img class="article-card__image" src="./Images/2_work 05.png" alt="Field journal article cover" />
+              <span class="article-card__tag">Field Journal</span>
+              <h3>Trip fragments collected as a visual system for future stories</h3>
+              <p>Notes from recent travel that now feed the portfolio's rhythm, colors, and framing.</p>
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <aside class="article-modal" aria-hidden="true">
+        <div class="article-modal__backdrop" data-close-modal></div>
+        <article class="article-modal__panel" role="dialog" aria-modal="true" aria-labelledby="article-title">
+          <button class="article-modal__close" type="button" data-close-modal aria-label="Close article"><span>&times;</span></button>
+          <div class="article-modal__head">
+            <p class="article-modal__kicker" id="article-kicker"></p>
+            <h2 class="article-modal__title" id="article-title"></h2>
+          </div>
+          <div class="article-modal__meta">
+            <div class="article-meta-item"><span>Sector</span><strong id="article-sector"></strong></div>
+            <div class="article-meta-item"><span>Region</span><strong id="article-region"></strong></div>
+            <div class="article-meta-item"><span>Timespan</span><strong id="article-timespan"></strong></div>
+            <div class="article-share">
+              <span>Share</span>
+              <div class="article-share__buttons">
+                <button class="share-button" type="button" data-share="copy" aria-label="Copy article link">⤴</button>
+                <button class="share-button" type="button" data-share="linkedin" aria-label="Share on LinkedIn">in</button>
+                <button class="share-button" type="button" data-share="x" aria-label="Share on X">X</button>
+              </div>
+            </div>
+          </div>
+          <div class="article-modal__body">
+            <div class="article-sidebar">
+              <div class="article-sidebar__block"><span>Contact</span><p id="article-contact"></p></div>
+              <div class="article-sidebar__block"><span>Services</span><p id="article-services"></p></div>
+              <div class="article-sidebar__block"><span>Client</span><p id="article-client"></p></div>
+            </div>
+            <div class="article-content">
+              <p class="article-summary" id="article-summary"></p>
+              <img class="article-hero-image" id="article-image" alt="" />
+              <div class="article-paragraphs" id="article-paragraphs"></div>
+            </div>
+          </div>
+        </article>
+      </aside>
+
+      <footer class="site-footer" id="contact">
+        <div class="site-footer__lead">
+          <p class="footer-kicker">cloudocloud</p>
+          <h2 class="footer-title">Spatial stories, visual research, and thoughtful digital experiences.</h2>
+        </div>
+        <div class="site-footer__meta">
+          <div class="footer-column">
+            <p class="footer-heading">Services</p>
+            <p>Spatial Strategy</p>
+            <p>Content Direction</p>
+            <p>Community Planning</p>
+          </div>
+          <div class="footer-column">
+            <p class="footer-heading">Follow</p>
+            <a href="https://instagram.com/cloud.o.cloud" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="./about.html">About us</a>
+          </div>
+          <div class="footer-column">
+            <p class="footer-heading">Based in</p>
+            <p>Seoul, Rep. of Korea</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdvVlzoiotK0UXaEOR_IEA80YfqxHy_Pq2V7vDCIdHkmlmjFQ/viewform?usp=header" target="_blank" rel="noreferrer">Contact</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
