@@ -19,52 +19,98 @@
         <a class="brand" href="./index.html">cloudocloud</a>
         <nav class="site-nav" aria-label="Primary">
           <a href="./works.html">Works</a>
-          <a href="./trip.html">Trip</a>
           <a class="is-active" href="./hub.html">Hub</a>
           <a href="./about.html">About us</a>
         </nav>
         <a class="contact-button" href="https://docs.google.com/forms/d/e/1FAIpQLSdvVlzoiotK0UXaEOR_IEA80YfqxHy_Pq2V7vDCIdHkmlmjFQ/viewform?usp=header" target="_blank" rel="noreferrer">contact us</a>
       </header>
 
-      <main class="detail-main">
-        <section class="detail-hero">
-          <div class="detail-copy">
-            <p class="section-label">Hub</p>
-            <h1>Articles, essays, and short studies collected like an ongoing magazine.</h1>
-            <p>
-              The hub page holds recent writing and research fragments, each designed
-              to open into a detailed reading view with strong editorial hierarchy.
-            </p>
+      <main class="detail-main hub-page">
+        <section class="hub-landing">
+          <p class="section-label">Knowledge Hub</p>
+          <h1>Thoughts, records, and field notes collected as an editorial archive.</h1>
+          <p class="hub-landing__lead">
+            Essays, travel writing, observations, and short studies gathered into one place. This page is designed less like
+            a project gallery and more like a reading room: slower, clearer, and organized by what kind of text you want to enter.
+          </p>
+          <div class="hub-landing__links" aria-label="Hub sections">
+            <a href="#articles">Articles</a>
+            <a href="#publications">Publications</a>
+            <a href="#latest-news">Latest notes</a>
           </div>
-          <img class="detail-hero-image" src="./Images/2_work 04.png" alt="Knowledge hub feature image" />
         </section>
 
-        <section class="hub-section">
-          <div class="hub-grid">
-            <button class="article-card" type="button" data-article="studio-letter">
-              <img class="article-card__image" src="./Images/2_work 06.png" alt="Studio letter article cover" />
-              <span class="article-card__tag">Our Story</span>
-              <h3>A message from the studio on building a softer, clearer portfolio</h3>
-              <p>Recent reflections on visual restraint, atmosphere, and narrative pacing.</p>
-            </button>
-            <button class="article-card article-card--oval" type="button" data-article="digital-observation">
-              <img class="article-card__image" src="./Images/2_work 04.png" alt="Digital observation article cover" />
+        <section class="hub-collection" id="articles">
+          <div class="hub-collection__header">
+            <p class="section-label">Articles</p>
+            <h2>Interviews, deep dives, and travel-linked essays</h2>
+            <a class="hub-collection__all" href="./hub-braga-stadium.html">Featured article</a>
+          </div>
+          <div class="hub-page__grid">
+            <a class="article-card article-card--oval" href="./hub-braga-stadium.html">
+              <img class="article-card__image" src="./Images/braga-article/29.jpeg" alt="Braga stadium article cover" />
+              <span class="article-card__tag">Brique</span>
+              <h3>시민에게 사랑받는 축구 클럽과 채석장 위에 세워진 브라가 시립 경기장</h3>
+              <p>포르투에서 브라가로 향한 여정과 SC Braga, 공공 경기장의 건축적 의미를 함께 기록한 글.</p>
+            </a>
+            <a class="article-card article-card--oval" href="./hub-digital-observation.html">
+              <img class="article-card__image" src="./Images/hub02.jpeg" alt="Digital observation article cover" />
               <span class="article-card__tag">Urban quality assessment</span>
               <h3>Measuring what we care about through images, notes, and digital tools</h3>
               <p>A concise article format for turning process into an elegant, readable archive.</p>
-            </button>
-            <button class="article-card" type="button" data-article="city-gap">
-              <img class="article-card__image" src="./Images/1_front 01.png" alt="City gap article cover" />
+            </a>
+            <a class="article-card" href="./hub-city-gap.html">
+              <img class="article-card__image" src="./Images/hub03.jpeg" alt="City gap article cover" />
               <span class="article-card__tag">City making</span>
               <h3>Closing the gap between cinematic presentation and useful information</h3>
               <p>How immersive visuals can still support clarity, trust, and practical reading.</p>
-            </button>
-            <button class="article-card" type="button" data-article="field-journal">
-              <img class="article-card__image" src="./Images/2_work 05.png" alt="Field journal article cover" />
+            </a>
+          </div>
+        </section>
+
+        <section class="hub-collection" id="publications">
+          <div class="hub-collection__header">
+            <p class="section-label">Publications</p>
+            <h2>Longer documents, field journals, and pieces that support future stories</h2>
+            <a class="hub-collection__all" href="./hub.html#publications">Selected texts</a>
+          </div>
+          <div class="hub-page__grid hub-page__grid--compact">
+            <a class="article-card" href="./hub-field-journal.html">
+              <img class="article-card__image" src="./Images/hub04.jpeg" alt="Field journal article cover" />
               <span class="article-card__tag">Field Journal</span>
               <h3>Trip fragments collected as a visual system for future stories</h3>
               <p>Notes from recent travel that now feed the portfolio's rhythm, colors, and framing.</p>
-            </button>
+            </a>
+            <a class="article-card" href="./hub-warm-interior.html">
+              <img class="article-card__image" src="./Images/hub05.jpeg" alt="Warm interior article cover" />
+              <span class="article-card__tag">Interior Study</span>
+              <h3>Globe lamps, green tile, and a bar interior layered with warm hospitality</h3>
+              <p>An interior study focused on lighting, material rhythm, and the comfort of classic bar spaces.</p>
+            </a>
+          </div>
+        </section>
+
+        <section class="hub-collection" id="latest-news">
+          <div class="hub-collection__header">
+            <p class="section-label">Latest Notes</p>
+            <h2>Shorter reflections, atmosphere studies, and recent additions</h2>
+          </div>
+          <div class="hub-page__list">
+            <a class="hub-page__list-item" href="./hub-studio-letter.html">
+              <span class="article-card__tag">Our Story</span>
+              <h3>A message from the studio on building a softer, clearer portfolio</h3>
+              <p>Recent reflections on visual restraint, atmosphere, and narrative pacing.</p>
+            </a>
+            <a class="hub-page__list-item" href="./hub-field-journal.html">
+              <span class="article-card__tag">Shared Table</span>
+              <h3>Seafood paella, lemon wedges, and a table arranged around sharing</h3>
+              <p>A dining image about abundance, color, and the social rhythm built around one large dish.</p>
+            </a>
+            <a class="hub-page__list-item" href="./hub-warm-interior.html">
+              <span class="article-card__tag">Interior Mood</span>
+              <h3>Classic interiors, hanging lamps, and notes on hospitality atmospheres</h3>
+              <p>A shorter article stream for observations that stay compact and immediate.</p>
+            </a>
           </div>
         </section>
       </main>
@@ -108,7 +154,7 @@
       <footer class="site-footer" id="contact">
         <div class="site-footer__lead">
           <p class="footer-kicker">cloudocloud</p>
-          <h2 class="footer-title">Spatial stories, visual research, and thoughtful digital experiences.</h2>
+          <h2 class="footer-title">Where walking meets space, community, and change.</h2>
         </div>
         <div class="site-footer__meta">
           <div class="footer-column">
