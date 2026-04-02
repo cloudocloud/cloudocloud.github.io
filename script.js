@@ -275,6 +275,102 @@ let currentHubIndex = 0;
 let hubScrollTimeoutId = null;
 let activeWorksFilters = new Set(["all"]);
 
+function buildHomeHubCard(source, index) {
+  const card = document.createElement("a");
+  card.className = `article-card is-visible${index % 2 === 0 ? " article-card--oval" : ""}`;
+  card.href = source.href;
+
+  if (source.imageSrc) {
+    const image = document.createElement("img");
+    image.className = "article-card__image";
+    image.src = source.imageSrc;
+    image.alt = source.imageAlt || "";
+    card.appendChild(image);
+  }
+
+  if (source.tag) {
+    const tag = document.createElement("span");
+    tag.className = "article-card__tag";
+    tag.textContent = source.tag;
+    card.appendChild(tag);
+  }
+
+  if (source.title) {
+    const title = document.createElement("h3");
+    title.textContent = source.title;
+    card.appendChild(title);
+  }
+
+  if (source.summary) {
+    const summary = document.createElement("p");
+    summary.textContent = source.summary;
+    card.appendChild(summary);
+  }
+
+  return card;
+}
+
+async function loadHomeHubFeed() {
+  if (!hubTrack || !document.body.classList.contains("front-page")) {
+    return;
+  }
+
+  try {
+    const response = await fetch("./hub.html", { cache: "no-store" });
+
+    if (!response.ok) {
+      return;
+    }
+
+    const html = await response.text();
+    const parsed = new DOMParser().parseFromString(html, "text/html");
+    const cardMap = new Map();
+
+    parsed.querySelectorAll(".hub-page a.article-card[href]").forEach((card) => {
+      const href = card.getAttribute("href");
+
+      if (!href || cardMap.has(href)) {
+        return;
+      }
+
+      const paragraphs = Array.from(card.querySelectorAll("p"));
+      const summary = paragraphs.find((paragraph) => !paragraph.classList.contains("article-card__subtitle"))?.textContent?.trim() || "";
+
+      cardMap.set(href, {
+        href,
+        imageSrc: card.querySelector("img")?.getAttribute("src") || "",
+        imageAlt: card.querySelector("img")?.getAttribute("alt") || "",
+        tag: card.querySelector(".article-card__tag")?.textContent?.trim() || "",
+        title: card.querySelector("h3")?.textContent?.trim() || "",
+        summary
+      });
+    });
+
+    const orderedHrefs = [];
+    const pushHref = (href) => {
+      if (href && !orderedHrefs.includes(href) && cardMap.has(href)) {
+        orderedHrefs.push(href);
+      }
+    };
+
+    parsed.querySelectorAll(".hub-page__list-item[href]").forEach((item) => pushHref(item.getAttribute("href")));
+    parsed.querySelectorAll(".hub-page a.article-card[href]").forEach((item) => pushHref(item.getAttribute("href")));
+
+    const nextCards = orderedHrefs
+      .slice(0, 4)
+      .map((href, index) => buildHomeHubCard(cardMap.get(href), index));
+
+    if (nextCards.length) {
+      hubTrack.replaceChildren(...nextCards);
+      currentHubIndex = 0;
+      scrollHubTo(0, "auto");
+      updateParallax();
+    }
+  } catch (error) {
+    // Keep the inline fallback cards when hub feed loading fails.
+  }
+}
+
 function parseWorksYear(card) {
   return Number(card.dataset.year || 0);
 }
@@ -634,16 +730,20 @@ function setupHubCarousel() {
     return;
   }
 
-  hubButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      moveHub(Number(button.dataset.hubDir));
+  if (!hubTrack.dataset.hubCarouselBound) {
+    hubButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        moveHub(Number(button.dataset.hubDir));
+      });
     });
-  });
 
-  hubTrack.addEventListener("scroll", () => {
-    window.clearTimeout(hubScrollTimeoutId);
-    hubScrollTimeoutId = window.setTimeout(updateHubFromScroll, 90);
-  }, { passive: true });
+    hubTrack.addEventListener("scroll", () => {
+      window.clearTimeout(hubScrollTimeoutId);
+      hubScrollTimeoutId = window.setTimeout(updateHubFromScroll, 90);
+    }, { passive: true });
+
+    hubTrack.dataset.hubCarouselBound = "true";
+  }
 
   scrollHubTo(0, "auto");
 }
@@ -769,6 +869,7 @@ if (slides.length) {
 
 setupWorksArchive();
 setupHubCarousel();
+loadHomeHubFeed();
 setupSatelliteGlobes();
 
 setupScrollReveal();

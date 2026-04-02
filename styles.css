@@ -977,6 +977,14 @@ body.front-page [data-reveal].is-visible {
   color: var(--subtle);
 }
 
+.article-card__subtitle {
+  margin: 6px 0 0;
+  color: #5e554d;
+  font-size: 1rem;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+}
+
 .article-card__tags {
   display: flex;
   flex-wrap: wrap;
@@ -1421,6 +1429,15 @@ body.front-page [data-reveal].is-visible {
   letter-spacing: -0.05em;
 }
 
+.article-page__subtitle {
+  margin: 10px 0 0;
+  max-width: 960px;
+  color: #3f3832;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
 .article-page__meta {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1505,6 +1522,38 @@ body.front-page [data-reveal].is-visible {
 
 .article-page__figure {
   margin: 30px 0 10px;
+}
+
+.article-page--chosimheon .article-page__title {
+  font-size: 30px;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.article-page--chosimheon .article-page__section h2 {
+  font-size: 28px;
+}
+
+.article-page--chosimheon .article-page__hero {
+  max-width: 50%;
+}
+
+.article-page--chosimheon .article-page__credits .article-page__body {
+  gap: 9px;
+}
+
+.article-page--chosimheon .article-page__credits .article-page__body p {
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+.article-page--chosimheon .article-page__credits .article-page__credits-title {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.article-page--chosimheon .article-page__credits .article-page__body strong {
+  font-weight: 800;
 }
 
 .article-page__gallery {
@@ -1612,6 +1661,25 @@ body.front-page [data-reveal].is-visible {
   gap: 18px 24px;
   align-items: end;
   margin-bottom: 26px;
+}
+
+.hub-collection__label-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.hub-collection__label-row .section-label {
+  margin: 0;
+}
+
+.hub-collection__label-note {
+  margin: 0;
+  color: #5e554d;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .hub-collection__header h2 {
@@ -1917,6 +1985,10 @@ body.front-page [data-reveal].is-visible {
 
   .article-page__summary {
     font-size: clamp(1.35rem, 6vw, 2rem);
+  }
+
+  .article-page--chosimheon .article-page__hero {
+    max-width: 100%;
   }
 
   .hub-landing h1 {
