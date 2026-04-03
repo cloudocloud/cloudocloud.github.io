@@ -1,6 +1,8 @@
 const slides = Array.from(document.querySelectorAll(".slide"));
 const progress = document.querySelector(".slider-progress span");
 const controls = Array.from(document.querySelectorAll(".slider-button"));
+const siteHeader = document.querySelector(".site-header");
+const heroSection = document.querySelector(".hero");
 const hubTrack = document.querySelector("[data-hub-track]");
 const hubViewport = document.querySelector("[data-hub-viewport]");
 const hubButtons = Array.from(document.querySelectorAll("[data-hub-dir]"));
@@ -274,6 +276,154 @@ let revealObserver = null;
 let currentHubIndex = 0;
 let hubScrollTimeoutId = null;
 let activeWorksFilters = new Set(["all"]);
+let hubDragState = null;
+let hubHoverVelocity = 0;
+let hubHoverAnimationId = null;
+
+function startHomeHubHoverScroll() {
+  if (hubHoverAnimationId || !hubTrack) {
+    return;
+  }
+
+  const tick = () => {
+    if (Math.abs(hubHoverVelocity) > 0.15) {
+      hubTrack.scrollLeft += hubHoverVelocity;
+      hubHoverAnimationId = window.requestAnimationFrame(tick);
+      return;
+    }
+
+    hubHoverAnimationId = null;
+  };
+
+  hubHoverAnimationId = window.requestAnimationFrame(tick);
+}
+
+function stopHomeHubHoverScroll() {
+  hubHoverVelocity = 0;
+
+  if (hubHoverAnimationId) {
+    window.cancelAnimationFrame(hubHoverAnimationId);
+    hubHoverAnimationId = null;
+  }
+}
+
+function updateFrontHeaderState() {
+  if (!siteHeader || !document.body.classList.contains("front-page")) {
+    return;
+  }
+
+  const heroHeight = heroSection?.offsetHeight || window.innerHeight;
+  const shouldBeSolid = window.scrollY > Math.max(heroHeight - 140, 120);
+
+  siteHeader.classList.toggle("is-solid", shouldBeSolid);
+}
+
+function fitArticleCardTitles() {
+  const titles = Array.from(document.querySelectorAll(".article-card h3"));
+
+  titles.forEach((title) => {
+    const card = title.closest(".article-card");
+
+    if (!card) {
+      return;
+    }
+
+    let nextSize = window.matchMedia("(max-width: 760px)").matches ? 1.55 : 2;
+    const minSize = window.matchMedia("(max-width: 760px)").matches ? 1.02 : 1.08;
+
+    title.style.setProperty("--article-card-title-size", `${nextSize}rem`);
+
+    const computed = window.getComputedStyle(title);
+    const lineHeight = Number.parseFloat(computed.lineHeight) || nextSize * 16 * 1.08;
+    const maxHeight = lineHeight * 3.2;
+
+    while (title.scrollHeight > maxHeight && nextSize > minSize) {
+      nextSize -= 0.04;
+      title.style.setProperty("--article-card-title-size", `${nextSize}rem`);
+    }
+  });
+}
+
+function setupHomeHubDrag() {
+  if (!hubTrack || !document.body.classList.contains("front-page") || hubTrack.dataset.dragBound) {
+    return;
+  }
+
+  const endDrag = () => {
+    if (!hubDragState) {
+      return;
+    }
+
+    hubTrack.classList.remove("is-dragging");
+    hubDragState = null;
+  };
+
+  hubTrack.addEventListener("pointerdown", (event) => {
+    if (event.pointerType === "mouse" && event.button !== 0) {
+      return;
+    }
+
+    hubDragState = {
+      startX: event.clientX,
+      startScrollLeft: hubTrack.scrollLeft,
+    };
+
+    hubTrack.classList.add("is-dragging");
+    hubTrack.setPointerCapture?.(event.pointerId);
+  });
+
+  hubTrack.addEventListener("pointermove", (event) => {
+    if (!hubDragState) {
+      return;
+    }
+
+    const deltaX = event.clientX - hubDragState.startX;
+    hubTrack.scrollLeft = hubDragState.startScrollLeft - deltaX;
+  });
+
+  hubTrack.addEventListener("pointerup", endDrag);
+  hubTrack.addEventListener("pointercancel", endDrag);
+  hubTrack.addEventListener("mouseleave", () => {
+    if (hubDragState) {
+      hubTrack.classList.remove("is-dragging");
+    }
+  });
+
+  if (hubViewport) {
+    hubViewport.addEventListener("pointermove", (event) => {
+      if (event.pointerType !== "mouse" || hubDragState) {
+        return;
+      }
+
+      const bounds = hubViewport.getBoundingClientRect();
+      const pointerX = event.clientX - bounds.left;
+      const normalized = ((pointerX / bounds.width) - 0.5) * 2;
+      const deadZoneAdjusted = Math.abs(normalized) < 0.18 ? 0 : normalized;
+
+      hubHoverVelocity = deadZoneAdjusted * 16;
+      startHomeHubHoverScroll();
+    });
+
+    hubViewport.addEventListener("pointerleave", stopHomeHubHoverScroll);
+  }
+
+  hubTrack.addEventListener(
+    "wheel",
+    (event) => {
+      const dominantDelta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+
+      if (!dominantDelta) {
+        return;
+      }
+
+      hubTrack.scrollLeft += dominantDelta;
+      event.preventDefault();
+    },
+    { passive: false }
+  );
+
+  hubTrack.dataset.dragBound = "true";
+}
 
 function buildHomeHubCard(source, index) {
   const card = document.createElement("a");
@@ -353,17 +503,29 @@ async function loadHomeHubFeed() {
       }
     };
 
-    parsed.querySelectorAll(".hub-page__list-item[href]").forEach((item) => pushHref(item.getAttribute("href")));
-    parsed.querySelectorAll(".hub-page a.article-card[href]").forEach((item) => pushHref(item.getAttribute("href")));
+    const latestNoteHrefs = Array.from(parsed.querySelectorAll(".hub-page__list-item[href]"))
+      .map((item) => item.getAttribute("href"))
+      .filter(Boolean)
+      .reverse();
+
+    const publicationCardHrefs = Array.from(parsed.querySelectorAll(".hub-page a.article-card[href]"))
+      .map((item) => item.getAttribute("href"))
+      .filter(Boolean)
+      .reverse();
+
+    latestNoteHrefs.forEach(pushHref);
+    publicationCardHrefs.forEach(pushHref);
 
     const nextCards = orderedHrefs
-      .slice(0, 4)
+      .slice(0, 7)
       .map((href, index) => buildHomeHubCard(cardMap.get(href), index));
 
     if (nextCards.length) {
       hubTrack.replaceChildren(...nextCards);
       currentHubIndex = 0;
       scrollHubTo(0, "auto");
+      setupHomeHubDrag();
+      fitArticleCardTitles();
       updateParallax();
     }
   } catch (error) {
@@ -730,6 +892,10 @@ function setupHubCarousel() {
     return;
   }
 
+  if (document.body.classList.contains("front-page")) {
+    setupHomeHubDrag();
+  }
+
   if (!hubTrack.dataset.hubCarouselBound) {
     hubButtons.forEach((button) => {
       button.addEventListener("click", () => {
@@ -873,10 +1039,17 @@ loadHomeHubFeed();
 setupSatelliteGlobes();
 
 setupScrollReveal();
+fitArticleCardTitles();
 updateParallax();
+updateFrontHeaderState();
 
-window.addEventListener("scroll", updateParallax, { passive: true });
-window.addEventListener("resize", () => {
+window.addEventListener("scroll", () => {
   updateParallax();
+  updateFrontHeaderState();
+}, { passive: true });
+window.addEventListener("resize", () => {
+  fitArticleCardTitles();
+  updateParallax();
+  updateFrontHeaderState();
   scrollHubTo(currentHubIndex, "auto");
 });
