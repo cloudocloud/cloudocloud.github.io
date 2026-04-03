@@ -1429,13 +1429,26 @@ body.front-page [data-reveal].is-visible {
   letter-spacing: -0.05em;
 }
 
-.article-page__subtitle {
-  margin: 10px 0 0;
+.article-page__title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 16px;
   max-width: 960px;
+}
+
+.article-page__subtitle {
+  margin: 0;
   color: #3f3832;
   font-size: 26px;
   line-height: 1.2;
   letter-spacing: -0.03em;
+}
+
+.article-page__subtitle--stacked {
+  margin-top: 4px;
+  max-width: 960px;
+  line-height: 1.45;
 }
 
 .article-page__meta {
@@ -1520,8 +1533,38 @@ body.front-page [data-reveal].is-visible {
   line-height: 1.9;
 }
 
+.article-page__note {
+  padding: 28px 30px;
+  border: 1px solid rgba(95, 80, 64, 0.14);
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(250, 247, 241, 0.96), rgba(245, 239, 231, 0.92));
+}
+
+.article-page__note-kicker {
+  margin: 0 0 10px;
+  color: #8d8378;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.article-page__note h2 {
+  margin: 0 0 18px;
+}
+
+.article-page__note h2 span {
+  font-size: 0.8em;
+}
+
 .article-page__figure {
   margin: 30px 0 10px;
+}
+
+.article-page__figure--half {
+  width: min(50%, 420px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .article-page--chosimheon .article-page__title {
@@ -1530,12 +1573,29 @@ body.front-page [data-reveal].is-visible {
   letter-spacing: -0.03em;
 }
 
+.article-page--chosimheon .article-page__title span {
+  font-size: 0.8em;
+}
+
 .article-page--chosimheon .article-page__section h2 {
   font-size: 28px;
 }
 
 .article-page--chosimheon .article-page__hero {
   max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 64px;
+}
+
+.article-page--chosimheon .article-page__figure,
+.article-page--chosimheon .article-page__gallery {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article-page--chosimheon .article-page__gallery {
+  margin-bottom: 64px;
 }
 
 .article-page--chosimheon .article-page__credits .article-page__body {
@@ -1566,6 +1626,8 @@ body.front-page [data-reveal].is-visible {
 .article-page__gallery--two {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+
+
 
 .article-page__gallery--seven {
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1981,6 +2043,11 @@ body.front-page [data-reveal].is-visible {
 
   .article-page__title {
     font-size: clamp(2.3rem, 10vw, 3.5rem);
+  }
+
+  .article-page__title-row {
+    display: grid;
+    gap: 8px;
   }
 
   .article-page__summary {
