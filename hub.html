@@ -36,7 +36,7 @@
           <div class="hub-landing__links" aria-label="Hub sections">
             <a href="#articles">Articles</a>
             <a href="#publications">Publications</a>
-            <a href="#latest-news">Latest notes</a>
+            <a href="#news">News</a>
           </div>
         </section>
 
@@ -72,7 +72,7 @@
             </div>
             <a class="hub-collection__all" href="./hub.html#publications">Selected texts</a>
           </div>
-          <div class="hub-page__grid hub-page__grid--compact">
+          <div class="hub-page__grid hub-page__grid--compact" data-publication-grid>
             <a class="article-card" href="./hub-chosimheon.html">
               <img class="article-card__image" src="./Images/2024 brique vol14 01.jpg" alt="Chosimheon article cover" />
               <span class="article-card__tag">Wellness</span>
@@ -171,101 +171,58 @@
               <p>공간, 커뮤니티, 한 사람이라는 세 키워드로 돌아본 패치워크 워크숍 참여 후기.</p>
             </a>
           </div>
+          <nav class="hub-pagination" aria-label="Publications pages" data-publication-pagination hidden></nav>
         </section>
 
-        <section class="hub-collection" id="latest-news">
+        <section class="hub-collection" id="news">
           <div class="hub-collection__header">
-            <p class="section-label">Latest Notes</p>
-            <h2>Shorter reflections, atmosphere studies, and recent additions</h2>
+            <p class="section-label">News</p>
+            <h2>Updates on the studio opening, project direction, exhibitions, and shared public conversations</h2>
           </div>
-          <div class="hub-page__list">
-            <a class="hub-page__list-item" href="./hub-reflow-jeju.html">
-              <span class="article-card__tag">Focus</span>
-              <h3>몰입과 안정감 속에서 보내는 일주일</h3>
-              <p class="article-card__subtitle">A Week of Focus and Belonging</p>
-              <p>창의적인 사람들의 아지트 리플로우 제주가 일과 머묾, 커뮤니티를 어떻게 엮는지에 대한 기록.</p>
+          <div class="news-board" role="list">
+            <a class="news-board__item" href="./hub-news-website-launch.html" role="listitem">
+              <div class="news-board__meta">
+                <span class="article-card__tag">Studio Update</span>
+                <time datetime="2026-04-01">2026.04.01</time>
+              </div>
+              <div class="news-board__headline">
+                <h3>cloudocloud 홈페이지를 공식 오픈했습니다</h3>
+                <span class="news-board__icon" aria-hidden="true">→</span>
+              </div>
+              <p class="news-board__lede">포트폴리오, 허브, 소개 페이지를 하나의 흐름으로 연결해 스튜디오의 시선과 작업 방식을 새롭게 공개합니다.</p>
             </a>
-            <a class="hub-page__list-item" href="./hub-vola-seoul-showroom.html">
-              <span class="article-card__tag">Focus</span>
-              <h3>한옥마을에서 만난 덴마크 미니멀 디자인</h3>
-              <p class="article-card__subtitle">VOLA Seoul Showroom in a Bukchon Alley</p>
-              <p>가회동 북촌 골목에서 한옥과 수전 브랜드의 미니멀 철학이 만나는 장면을 기록한 글.</p>
+            <a class="news-board__item" href="./hub-news-project-direction.html" role="listitem">
+                <div class="news-board__meta">
+                  <span class="article-card__tag">Project Direction</span>
+                  <time datetime="2026-03-25">2026.03.25</time>
+                </div>
+                <div class="news-board__headline">
+                  <h3>프로젝트의 방향성을 공간, 커뮤니티, 개인의 관계로 다시 정리하고 있습니다</h3>
+                  <span class="news-board__icon" aria-hidden="true">→</span>
+                </div>
+                <p class="news-board__lede">최근 스튜디오는 디자인 결과보다 그 과정에서 어떤 관계를 만들고 어떤 변화를 남기는지에 더 집중하고 있습니다.</p>
             </a>
-            <a class="hub-page__list-item" href="./hub-maha-hannam.html">
-              <span class="article-card__tag">Spot</span>
-              <h3>건축가의 서재에 머무르다</h3>
-              <p class="article-card__subtitle">Maha Hannam: A Cafe Where an Architect's Library and Studio Meet</p>
-              <p>동빙고동 오래된 목욕탕 건물 위에 들어선 마하 한남이 건축과 일상을 어떻게 연결하는지에 대한 기록.</p>
+            <a class="news-board__item" href="./hub-news-exhibition-visit.html" role="listitem">
+                <div class="news-board__meta">
+                  <span class="article-card__tag">Exhibition Visit</span>
+                  <time datetime="2026-03-14">2026.03.14</time>
+                </div>
+                <div class="news-board__headline">
+                  <h3>전시 관람을 통해 동네의 감각을 다루는 방식에 대한 힌트를 얻었습니다</h3>
+                  <span class="news-board__icon" aria-hidden="true">→</span>
+                </div>
+                <p class="news-board__lede">최근 관람한 전시는 하나의 작품보다 관람 동선, 체류 리듬, 공간의 여백이 어떻게 감정을 만드는지에 더 많은 질문을 남겼습니다.</p>
             </a>
-            <a class="hub-page__list-item" href="./hub-pub-blanc.html">
-              <span class="article-card__tag">Spot</span>
-              <h3>배부르게 먹고 신나고 즐겁게 떠들고</h3>
-              <p class="article-card__subtitle">pub blanc: A Neighborhood Beer House for Eating Well and Talking Loudly</p>
-              <p>영등포구청역 인근 골목의 펍블랑이 보여준 다정하고 자립적인 동네 상업 공간의 가능성.</p>
-            </a>
-            <a class="hub-page__list-item" href="./hub-suntree-house.html">
-              <span class="article-card__tag">Spot</span>
-              <h3>따뜻한 햇살과 든든한 나무가 되어 주는 곳</h3>
-              <p class="article-card__subtitle">A Place That Becomes Warm Sunlight and a Steady Tree</p>
-              <p>경리단길 주택가의 썬트리하우스가 혼자 일하는 사람들에게 동료적 연대를 어떻게 제공하는지에 대한 기록.</p>
-            </a>
-            <a class="hub-page__list-item" href="./hub-porto-atmosphere.html">
-              <span class="article-card__tag">Travel Essay</span>
-              <h3>포르투, 무엇으로부터 매력을 느꼈는가</h3>
-              <p class="article-card__subtitle">Porto: Where Atmosphere Becomes a Place</p>
-              <p>포르투라는 도시의 분위기를 건축과 거리의 생활 감각 속에서 읽어낸 이베리아반도 유랑기의 첫 기록.</p>
-            </a>
-            <a class="hub-page__list-item" href="./hub-edge-of-europe.html">
-              <span class="article-card__tag">Travel Essay</span>
-              <h3>유럽의 땅끝에 가다</h3>
-              <p class="article-card__subtitle">Journeying to the Edge of Europe</p>
-              <p>호카곶과 사그레스 요새를 직접 걸으며 유럽의 끝과 탐험의 감각을 기록한 이베리아반도 유랑기 2편.</p>
-            </a>
-            <a class="hub-page__list-item" href="./hub-leca-tidal-pool.html">
-              <span class="article-card__tag">Travel Essay</span>
-              <h3>60년의 여정, 건축은 멈추지 않는다</h3>
-              <p class="article-card__subtitle">A Journey of Sixty Years: Architecture Never Stops</p>
-              <p>레사 조수 풀장을 통해 완성이 아닌 지속의 과정으로서 건축을 다시 읽어낸 이베리아반도 유랑기 3편.</p>
-            </a>
-            <a class="hub-page__list-item" href="./hub-braga-quarry-stadium.html">
-              <span class="article-card__tag">Travel Essay</span>
-              <h3>시민에게 사랑받는 축구 클럽과 채석장 위에 세워진 경기장</h3>
-              <p class="article-card__subtitle">A Football Club Beloved by Its Citizens and a Stadium Built Above a Quarry</p>
-              <p>브라가 시립 경기장의 원초적 공간감과 공공적 의미를 따라간 이베리아반도 유랑기 4편.</p>
-            </a>
-            <a class="hub-page__list-item" href="./hub-museum-gardens.html">
-              <span class="article-card__tag">Travel Essay</span>
-              <h3>미술관 곁에는 늘 정원이 있었다</h3>
-              <p class="article-card__subtitle">There Was Always a Garden Beside the Museum</p>
-              <p>세 미술관의 정원을 통해 예술과 삶을 잇는 공간의 역할을 살핀 이베리아반도 유랑기 5편.</p>
-            </a>
-            <a class="hub-page__list-item" href="./hub-patchwork-workshop.html">
-              <span class="article-card__tag">Workshop Review</span>
-              <h3>마음껏 상상을 펼쳤던 '미래의 예술공간 함께 상상하기' 워크숍</h3>
-              <p>예술공간을 함께 상상하는 워크숍을 통해 공간, 커뮤니티, 개인의 변화를 되짚은 기록.</p>
-            </a>
-            <a class="hub-page__list-item" href="./hub-the-age-of-paradigm-shift.html">
-              <span class="article-card__tag">Portrait</span>
-              <h3>패러다임 전환의 시대</h3>
-              <p class="article-card__subtitle">The Age of Paradigm Shift</p>
-              <p>전 지구적 패러다임 전환 속에서 호텔과 웰니스, 리트릿을 다시 읽는 한이경 대표의 관점.</p>
-            </a>
-            <a class="hub-page__list-item" href="./hub-my-body-is-made-of-what-i-eat.html">
-              <span class="article-card__tag">Wellness</span>
-              <h3>나의 몸은 내가 먹은 것으로부터</h3>
-              <p class="article-card__subtitle">My Body Is Made of What I Eat</p>
-              <p>치유와 회복의 경험에서 출발해 건강한 식문화를 사회 전반으로 넓혀가는 이야기.</p>
-            </a>
-            <a class="hub-page__list-item" href="./hub-chosimheon.html">
-              <span class="article-card__tag">Wellness</span>
-              <h3>계절의 변화를 감각하는 찻자리, 초심헌</h3>
-              <p class="article-card__subtitle">Chosimheon: A Tea Gathering That Perceives the Changing of Seasons</p>
-              <p>차와 식물, 계절의 감각으로 일상의 균형을 회복하는 웰니스 라이프스타일에 대한 글.</p>
-            </a>
-            <a class="hub-page__list-item" href="./hub-studio-letter.html">
-              <span class="article-card__tag">Our Story</span>
-              <h3>A message from the studio on building a softer, clearer portfolio</h3>
-              <p>Recent reflections on visual restraint, atmosphere, and narrative pacing.</p>
+            <a class="news-board__item" href="./hub-news-talk-and-lecture.html" role="listitem">
+                <div class="news-board__meta">
+                  <span class="article-card__tag">Talk & Lecture</span>
+                  <time datetime="2026-02-28">2026.02.28</time>
+                </div>
+                <div class="news-board__headline">
+                  <h3>강연과 대화 자리에 참여하며 실무 밖의 언어를 확장하고 있습니다</h3>
+                  <span class="news-board__icon" aria-hidden="true">→</span>
+                </div>
+                <p class="news-board__lede">최근 참여한 강연에서는 도시와 문화, 환대, 장소성에 관한 다양한 실천 사례를 들으며 작업의 언어를 다시 점검하게 되었습니다.</p>
             </a>
           </div>
         </section>

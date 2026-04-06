@@ -13,6 +13,8 @@ const worksFilterButtons = Array.from(document.querySelectorAll("[data-works-fil
 const worksSortSelect = document.querySelector("[data-works-sort]");
 const worksClearButton = document.querySelector("[data-works-clear]");
 const worksCount = document.querySelector("[data-works-count]");
+const publicationGrid = document.querySelector("[data-publication-grid]");
+const publicationPagination = document.querySelector("[data-publication-pagination]");
 const modal = document.querySelector(".article-modal");
 const modalPanel = document.querySelector(".article-modal__panel");
 const closeTargets = Array.from(document.querySelectorAll("[data-close-modal]"));
@@ -278,6 +280,75 @@ let hubScrollTimeoutId = null;
 let activeWorksFilters = new Set(["all"]);
 let hubDragState = null;
 let hubHoverVelocity = 0;
+
+function setupHubPublicationsPagination() {
+  if (!publicationGrid || !publicationPagination) {
+    return;
+  }
+
+  const cards = Array.from(publicationGrid.querySelectorAll(".article-card"));
+  const publicationsPerPage = 4;
+  const totalPages = Math.ceil(cards.length / publicationsPerPage);
+
+  if (!cards.length || totalPages <= 1) {
+    cards.forEach((card) => {
+      card.hidden = false;
+    });
+    publicationPagination.hidden = true;
+    publicationPagination.replaceChildren();
+    return;
+  }
+
+  let currentPage = Number.parseInt(publicationGrid.dataset.currentPage || "1", 10);
+
+  if (!Number.isFinite(currentPage) || currentPage < 1) {
+    currentPage = 1;
+  }
+
+  currentPage = Math.min(currentPage, totalPages);
+
+  const renderPublicationPage = (page) => {
+    currentPage = Math.min(Math.max(page, 1), totalPages);
+    publicationGrid.dataset.currentPage = String(currentPage);
+
+    cards.forEach((card, index) => {
+      const pageForCard = Math.floor(index / publicationsPerPage) + 1;
+      const isVisible = pageForCard === currentPage;
+      card.hidden = !isVisible;
+    });
+
+    Array.from(publicationPagination.querySelectorAll(".hub-pagination__button")).forEach((button, index) => {
+      const isActive = index + 1 === currentPage;
+      button.classList.toggle("is-active", isActive);
+      if (isActive) {
+        button.setAttribute("aria-current", "page");
+      } else {
+        button.removeAttribute("aria-current");
+      }
+    });
+  };
+
+  const buttons = Array.from({ length: totalPages }, (_, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "hub-pagination__button";
+    button.textContent = String(index + 1);
+    button.setAttribute("aria-label", `Go to publications page ${index + 1}`);
+    button.addEventListener("click", () => {
+      renderPublicationPage(index + 1);
+      publicationPagination.scrollIntoView({
+        block: "nearest",
+        behavior: supportsSmoothScroll() ? "smooth" : "auto"
+      });
+    });
+    return button;
+  });
+
+  publicationPagination.replaceChildren(...buttons);
+  publicationPagination.hidden = false;
+  renderPublicationPage(currentPage);
+}
+
 let hubHoverAnimationId = null;
 
 function startHomeHubHoverScroll() {
@@ -1035,6 +1106,7 @@ if (slides.length) {
 
 setupWorksArchive();
 setupHubCarousel();
+setupHubPublicationsPagination();
 loadHomeHubFeed();
 setupSatelliteGlobes();
 
