@@ -546,6 +546,19 @@ body.front-page main {
   fill: currentColor;
 }
 
+.about-document__social-link--brunch img {
+  width: 92%;
+  height: 92%;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0.78) contrast(0.7) opacity(0.72);
+  transition: filter 180ms ease, transform 180ms ease;
+}
+
+.about-document__social-link--brunch:hover img,
+.about-document__social-link--brunch:focus-visible img {
+  filter: grayscale(1) brightness(0.62) contrast(0.8) opacity(0.86);
+}
+
 .about-document__image {
   width: 100%;
   max-width: 210px;
@@ -1248,6 +1261,16 @@ body.front-page [data-reveal].is-visible {
   gap: 8px 14px;
 }
 
+.works-card .article-card__title-row {
+  gap: 8px 12px;
+}
+
+.works-card h3 {
+  font-size: clamp(1.62rem, 2.43vw, 2.03rem);
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+}
+
 .article-card p,
 .about-panel p,
 .info-grid p {
@@ -1269,6 +1292,12 @@ body.front-page [data-reveal].is-visible {
   font-size: clamp(1.35rem, 1.95vw, 1.75rem);
   line-height: 1.2;
   letter-spacing: -0.03em;
+}
+
+.works-card .article-card__subtitle--title {
+  font-size: clamp(1.2rem, 1.85vw, 1.5rem);
+  line-height: 1.18;
+  letter-spacing: -0.028em;
 }
 
 .article-card__tags {
@@ -1782,7 +1811,7 @@ body.front-page [data-reveal].is-visible {
 .article-page__title {
   margin: 0;
   max-width: 960px;
-  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  font-size: clamp(1.4rem, 3vw, 2.6rem);
   line-height: 0.98;
   letter-spacing: -0.05em;
 }
@@ -1863,7 +1892,7 @@ body.front-page [data-reveal].is-visible {
 .article-page__summary {
   max-width: 920px;
   margin: 0 0 42px;
-  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  font-size: clamp(1.2rem, 2.25vw, 1.875rem);
   line-height: 1.18;
   letter-spacing: -0.03em;
 }
@@ -1871,7 +1900,7 @@ body.front-page [data-reveal].is-visible {
 .article-page__summary--bilingual {
   display: grid;
   gap: 18px;
-  font-size: clamp(1.26rem, 2.1vw, 1.82rem);
+  font-size: clamp(0.945rem, 1.575vw, 1.365rem);
   line-height: 1.4;
 }
 
@@ -1956,10 +1985,6 @@ body.front-page [data-reveal].is-visible {
 
 .article-page--chosimheon .article-page__title span {
   font-size: 0.8em;
-}
-
-.article-page--jeju-sprint .article-page__title {
-  font-size: clamp(2.24rem, 4.8vw, 4.16rem);
 }
 
 .article-page--jeju-sprint .article-page__subtitle {
@@ -2674,11 +2699,7 @@ body.front-page [data-reveal].is-visible {
   }
 
   .article-page__title {
-    font-size: clamp(2.3rem, 10vw, 3.5rem);
-  }
-
-  .article-page--jeju-sprint .article-page__title {
-    font-size: clamp(1.84rem, 8vw, 2.8rem);
+    font-size: clamp(1.15rem, 5vw, 1.75rem);
   }
 
   .article-page__title-row {
@@ -2691,7 +2712,7 @@ body.front-page [data-reveal].is-visible {
   }
 
   .article-page__summary {
-    font-size: clamp(1.35rem, 6vw, 2rem);
+    font-size: clamp(1.05rem, 4.5vw, 1.5rem);
   }
 
   .article-page--chosimheon .article-page__hero {
