@@ -10,6 +10,7 @@ const hubProgress = document.querySelector("[data-hub-progress]");
 const articleCards = Array.from(document.querySelectorAll("button.article-card[data-article]"));
 const worksGrid = document.querySelector("[data-works-grid]");
 const worksFilterButtons = Array.from(document.querySelectorAll("[data-works-filter]"));
+const worksAccordionTriggers = Array.from(document.querySelectorAll("[data-works-accordion-trigger]"));
 const worksSortSelect = document.querySelector("[data-works-sort]");
 const worksClearButton = document.querySelector("[data-works-clear]");
 const worksCount = document.querySelector("[data-works-count]");
@@ -277,7 +278,12 @@ let currentArticleId = null;
 let revealObserver = null;
 let currentHubIndex = 0;
 let hubScrollTimeoutId = null;
-let activeWorksFilters = new Set(["all"]);
+let activeWorksFilters = {
+  area: "all",
+  role: "all",
+  location: "all",
+  state: "all"
+};
 let hubDragState = null;
 let hubHoverVelocity = 0;
 
@@ -630,7 +636,8 @@ function updateWorksCount(visibleCards) {
 
 function syncWorksFilterButtons() {
   worksFilterButtons.forEach((button) => {
-    const isActive = activeWorksFilters.has(button.dataset.worksFilter);
+    const filterGroup = button.dataset.worksFilterGroup;
+    const isActive = activeWorksFilters[filterGroup] === button.dataset.worksFilter;
     button.classList.toggle("is-active", isActive);
     button.setAttribute("aria-pressed", isActive ? "true" : "false");
   });
@@ -642,11 +649,13 @@ function applyWorksArchive() {
   }
 
   const worksCards = Array.from(worksGrid.querySelectorAll(".works-card"));
-  const activeFilters = activeWorksFilters.has("all") ? [] : Array.from(activeWorksFilters);
 
   worksCards.forEach((card) => {
-    const cardTags = (card.dataset.tags || "").split(/\s+/).filter(Boolean);
-    const isVisible = activeFilters.every((tag) => cardTags.includes(tag));
+    const matchesArea = activeWorksFilters.area === "all" || card.dataset.area === activeWorksFilters.area;
+    const matchesRole = activeWorksFilters.role === "all" || card.dataset.role === activeWorksFilters.role;
+    const matchesLocation = activeWorksFilters.location === "all" || card.dataset.location === activeWorksFilters.location;
+    const matchesState = activeWorksFilters.state === "all" || card.dataset.state === activeWorksFilters.state;
+    const isVisible = matchesArea && matchesRole && matchesLocation && matchesState;
     card.classList.toggle("is-hidden", !isVisible);
   });
 
@@ -660,7 +669,12 @@ function applyWorksArchive() {
 }
 
 function resetWorksFilters() {
-  activeWorksFilters = new Set(["all"]);
+  activeWorksFilters = {
+    area: "all",
+    role: "all",
+    location: "all",
+    state: "all"
+  };
   if (worksSortSelect) {
     worksSortSelect.value = "newest";
   }
@@ -669,23 +683,8 @@ function resetWorksFilters() {
   applyWorksArchive();
 }
 
-function toggleWorksFilter(filterValue) {
-  if (filterValue === "all") {
-    activeWorksFilters = new Set(["all"]);
-  } else {
-    activeWorksFilters.delete("all");
-
-    if (activeWorksFilters.has(filterValue)) {
-      activeWorksFilters.delete(filterValue);
-    } else {
-      activeWorksFilters.add(filterValue);
-    }
-
-    if (!activeWorksFilters.size) {
-      activeWorksFilters = new Set(["all"]);
-    }
-  }
-
+function toggleWorksFilter(filterGroup, filterValue) {
+  activeWorksFilters[filterGroup] = filterValue;
   syncWorksFilterButtons();
   applyWorksArchive();
 }
@@ -697,7 +696,7 @@ function setupWorksArchive() {
 
   worksFilterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      toggleWorksFilter(button.dataset.worksFilter);
+      toggleWorksFilter(button.dataset.worksFilterGroup, button.dataset.worksFilter);
     });
   });
 
@@ -706,6 +705,27 @@ function setupWorksArchive() {
 
   syncWorksFilterButtons();
   applyWorksArchive();
+}
+
+function setupWorksFilterAccordions() {
+  if (!worksAccordionTriggers.length) {
+    return;
+  }
+
+  worksAccordionTriggers.forEach((trigger) => {
+    const panel = trigger.nextElementSibling;
+
+    if (!panel) {
+      return;
+    }
+
+    trigger.addEventListener("click", () => {
+      const isOpen = trigger.getAttribute("aria-expanded") === "true";
+      trigger.setAttribute("aria-expanded", isOpen ? "false" : "true");
+      trigger.classList.toggle("is-open", !isOpen);
+      panel.hidden = isOpen;
+    });
+  });
 }
 
 function setupScrollReveal() {
@@ -1105,6 +1125,7 @@ if (slides.length) {
 }
 
 setupWorksArchive();
+setupWorksFilterAccordions();
 setupHubCarousel();
 setupHubPublicationsPagination();
 loadHomeHubFeed();

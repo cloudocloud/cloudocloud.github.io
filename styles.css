@@ -308,13 +308,19 @@ body.front-page main {
 }
 
 .works-filter-groups {
-  display: grid;
-  gap: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px 28px;
+  align-items: flex-start;
 }
 
 .works-filter-group {
   display: grid;
   gap: 10px;
+  min-width: 220px;
+  flex: 1 1 220px;
+  padding: 18px 0;
+  border-top: 1px solid rgba(30, 26, 22, 0.12);
 }
 
 .works-filter-group__label {
@@ -326,8 +332,44 @@ body.front-page main {
 }
 
 .works-filter-list {
+  display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.works-filter-list[hidden] {
+  display: none;
+}
+
+.works-filter-group__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.works-filter-group__toggle .works-filter-group__label {
+  color: #1e1a16;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  text-transform: none;
+}
+
+.works-filter-group__icon {
+  color: #1e1a16;
+  font-size: 1.35rem;
+  line-height: 1;
+  transition: transform 220ms ease;
+  transform: rotate(0deg);
+}
+
+.works-filter-group__toggle.is-open .works-filter-group__icon {
+  transform: rotate(180deg);
 }
 
 .works-filter,
@@ -1935,6 +1977,19 @@ body.front-page [data-reveal].is-visible {
   line-height: 1.9;
 }
 
+.article-page__series-link {
+  display: inline-block;
+  padding: 0.08em 0.28em;
+  border-radius: 0.4em;
+  transition: transform 180ms ease, color 180ms ease;
+}
+
+.article-page__series-link:hover,
+.article-page__series-link:focus-visible {
+  background: rgba(30, 26, 22, 0.08);
+  transform: translateY(-2px);
+}
+
 .article-page__credits .article-page__body {
   gap: 2px;
 }
@@ -1975,6 +2030,16 @@ body.front-page [data-reveal].is-visible {
   width: min(50%, 420px);
   margin-left: auto;
   margin-right: auto;
+}
+
+.article-page__figure--seventy {
+  width: min(70%, 760px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.article-page__figure--square img {
+  border-radius: 0;
 }
 
 .article-page--chosimheon .article-page__title {
@@ -2654,6 +2719,16 @@ body.front-page [data-reveal].is-visible {
 
   .works-grid--archive {
     grid-template-columns: 1fr;
+  }
+
+  .works-filter-groups {
+    display: grid;
+    gap: 0;
+  }
+
+  .works-filter-group {
+    min-width: 0;
+    flex: initial;
   }
 
   .works-toolbar__meta {

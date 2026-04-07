@@ -38,30 +38,73 @@
             <div>
               <p class="section-label">Project archive</p>
             </div>
-            <p class="works-archive__count" data-works-count>4 projects</p>
+            <p class="works-archive__count" data-works-count>15 projects</p>
           </div>
 
           <div class="works-toolbar" aria-label="Project filters">
             <div class="works-filter-groups">
               <div class="works-filter-group">
-                <span class="works-filter-group__label">Type</span>
-                <div class="works-filter-list">
-                  <button class="works-filter is-active" type="button" data-works-filter="all" aria-pressed="true">All projects</button>
-                  <button class="works-filter" type="button" data-works-filter="public-space" aria-pressed="false">Public Space</button>
-                  <button class="works-filter" type="button" data-works-filter="mobility" aria-pressed="false">Mobility</button>
-                  <button class="works-filter" type="button" data-works-filter="culture" aria-pressed="false">Culture</button>
-                  <button class="works-filter" type="button" data-works-filter="waterfront" aria-pressed="false">Waterfront</button>
-                  <button class="works-filter" type="button" data-works-filter="housing" aria-pressed="false">Housing</button>
+                <button class="works-filter-group__toggle is-open" type="button" data-works-accordion-trigger aria-expanded="true">
+                  <span class="works-filter-group__label">Area</span>
+                  <span class="works-filter-group__icon" aria-hidden="true">↑</span>
+                </button>
+                <div class="works-filter-list" data-works-accordion-panel>
+                  <button class="works-filter is-active" type="button" data-works-filter-group="area" data-works-filter="all" aria-pressed="true">All projects</button>
+                  <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="community" aria-pressed="false">Community</button>
+                  <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="content" aria-pressed="false">Content</button>
+                  <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="contribution" aria-pressed="false">Contribution</button>
+                  <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="magazine" aria-pressed="false">Magazine</button>
+                  <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="branding" aria-pressed="false">Branding</button>
+                  <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="education" aria-pressed="false">Education</button>
+                  <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="environment" aria-pressed="false">Environment</button>
+                  <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="operation" aria-pressed="false">Operation</button>
+                  <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="new-media" aria-pressed="false">New Media</button>
+                  <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="business-planning" aria-pressed="false">Business Planning</button>
+                  <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="project-planning" aria-pressed="false">Project Planning</button>
+                  <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="region-regeneration" aria-pressed="false">Region Regeneration</button>
                 </div>
               </div>
 
               <div class="works-filter-group">
-                <span class="works-filter-group__label">Region</span>
-                <div class="works-filter-list">
-                  <button class="works-filter" type="button" data-works-filter="asia" aria-pressed="false">Asia</button>
-                  <button class="works-filter" type="button" data-works-filter="europe" aria-pressed="false">Europe</button>
-                  <button class="works-filter" type="button" data-works-filter="north-america" aria-pressed="false">North America</button>
-                  <button class="works-filter" type="button" data-works-filter="middle-east" aria-pressed="false">Middle East</button>
+                <button class="works-filter-group__toggle" type="button" data-works-accordion-trigger aria-expanded="false">
+                  <span class="works-filter-group__label">Role</span>
+                  <span class="works-filter-group__icon" aria-hidden="true">↑</span>
+                </button>
+                <div class="works-filter-list" data-works-accordion-panel hidden>
+                  <button class="works-filter is-active" type="button" data-works-filter-group="role" data-works-filter="all" aria-pressed="true">All roles</button>
+                  <button class="works-filter" type="button" data-works-filter-group="role" data-works-filter="research" aria-pressed="false">Research</button>
+                  <button class="works-filter" type="button" data-works-filter-group="role" data-works-filter="editor" aria-pressed="false">Editor</button>
+                  <button class="works-filter" type="button" data-works-filter-group="role" data-works-filter="pm" aria-pressed="false">PM</button>
+                  <button class="works-filter" type="button" data-works-filter-group="role" data-works-filter="design" aria-pressed="false">Design</button>
+                  <button class="works-filter" type="button" data-works-filter-group="role" data-works-filter="consultation" aria-pressed="false">Consultation</button>
+                  <button class="works-filter" type="button" data-works-filter-group="role" data-works-filter="content" aria-pressed="false">Content</button>
+                  <button class="works-filter" type="button" data-works-filter-group="role" data-works-filter="documentation" aria-pressed="false">Documentation</button>
+                </div>
+              </div>
+
+              <div class="works-filter-group">
+                <button class="works-filter-group__toggle" type="button" data-works-accordion-trigger aria-expanded="false">
+                  <span class="works-filter-group__label">Location</span>
+                  <span class="works-filter-group__icon" aria-hidden="true">↑</span>
+                </button>
+                <div class="works-filter-list" data-works-accordion-panel hidden>
+                  <button class="works-filter is-active" type="button" data-works-filter-group="location" data-works-filter="all" aria-pressed="true">All locations</button>
+                  <button class="works-filter" type="button" data-works-filter-group="location" data-works-filter="seoul" aria-pressed="false">Seoul</button>
+                  <button class="works-filter" type="button" data-works-filter-group="location" data-works-filter="gyeonggi" aria-pressed="false">Gyeonggi</button>
+                  <button class="works-filter" type="button" data-works-filter-group="location" data-works-filter="jeju" aria-pressed="false">Jeju</button>
+                  <button class="works-filter" type="button" data-works-filter-group="location" data-works-filter="ulleungdo" aria-pressed="false">Ulleungdo</button>
+                </div>
+              </div>
+
+              <div class="works-filter-group">
+                <button class="works-filter-group__toggle" type="button" data-works-accordion-trigger aria-expanded="false">
+                  <span class="works-filter-group__label">State</span>
+                  <span class="works-filter-group__icon" aria-hidden="true">↑</span>
+                </button>
+                <div class="works-filter-list" data-works-accordion-panel hidden>
+                  <button class="works-filter is-active" type="button" data-works-filter-group="state" data-works-filter="all" aria-pressed="true">All states</button>
+                  <button class="works-filter" type="button" data-works-filter-group="state" data-works-filter="completed" aria-pressed="false">Completed</button>
+                  <button class="works-filter" type="button" data-works-filter-group="state" data-works-filter="suggestion" aria-pressed="false">Suggestion</button>
                 </div>
               </div>
             </div>
@@ -82,10 +125,277 @@
           <div class="works-grid works-grid--archive" data-works-grid>
             <a
               class="article-card works-card"
+              href="./work-brique-magazine-vol14.html"
+              data-title="Brique Magazine Vol 14 Wellness Lifestyle"
+              data-year="2023"
+              data-area="magazine"
+              data-role="pm"
+              data-location="seoul"
+              data-state="completed"
+            >
+              <img class="article-card__image" src="./Images/project/prj-brique-14.jpg" alt="Cover of Brique Magazine Vol. 14 Wellness Lifestyle in green" />
+              <div class="article-card__tags">
+                <span class="article-card__tag">Magazine</span>
+                <span class="article-card__tag">PM / Editor</span>
+              </div>
+              <div class="article-card__title-row">
+                <h3>브리크매거진 14호 Wellness Lifestyle 기획 총괄</h3>
+                <p class="article-card__subtitle article-card__subtitle--title">Brique Magazine Vol. 14 — Wellness Lifestyle</p>
+              </div>
+              <div class="works-card__meta">
+                <span>Seoul, Korea</span>
+                <span>2023</span>
+              </div>
+            </a>
+            <a
+              class="article-card works-card"
+              href="./work-brique-iberian-wanderings.html"
+              data-title="Brique Iberian Peninsula Wanderings"
+              data-year="2025"
+              data-area="contribution"
+              data-role="editor"
+              data-location="seoul"
+              data-state="completed"
+            >
+              <img class="article-card__image" src="./Images/project/Prj-brique-contribution2025.jpeg" alt="Street musicians performing by the river beneath Dom Luis I Bridge in Porto at sunset" />
+              <div class="article-card__tags">
+                <span class="article-card__tag">Contribution</span>
+                <span class="article-card__tag">Guest Editor</span>
+              </div>
+              <div class="article-card__title-row">
+                <h3>브리크 ‘이베리아반도 유랑기’ 기고</h3>
+                <p class="article-card__subtitle article-card__subtitle--title">Contribution to Brique Magazine — Iberian Peninsula Wanderings</p>
+              </div>
+              <div class="works-card__meta">
+                <span>Seoul, Korea</span>
+                <span>2025</span>
+              </div>
+            </a>
+            <a
+              class="article-card works-card"
+              href="./work-hankan-brand-content.html"
+              data-title="Hankan Brand Content Planning"
+              data-year="2024"
+              data-area="content"
+              data-role="content"
+              data-location="seoul"
+              data-state="completed"
+            >
+              <img class="article-card__image" src="./Images/project/prj-hankan-content.png" alt="Illustrated yellow mascot face with hexagonal glasses created for HANKAN brand content" />
+              <div class="article-card__tags">
+                <span class="article-card__tag">Content</span>
+                <span class="article-card__tag">Brand Storytelling</span>
+              </div>
+              <div class="article-card__title-row">
+                <h3>한칸 HANKAN 브랜드 스토리 등 콘텐츠 기획</h3>
+                <p class="article-card__subtitle article-card__subtitle--title">Hankan Content Planning for Brand Storytelling and Beyond</p>
+              </div>
+              <div class="works-card__meta">
+                <span>Seoul, Korea</span>
+                <span>2022-2024</span>
+              </div>
+            </a>
+            <a
+              class="article-card works-card"
+              href="./work-pangyo-startup-support-center.html"
+              data-title="Pangyo Startup Support Center Operations Research"
+              data-year="2019"
+              data-area="operation"
+              data-role="research"
+              data-location="gyeonggi"
+              data-state="completed"
+            >
+              <img class="article-card__image" src="./Images/project/prj-pangyo-support01.jpeg" alt="Exterior courtyard view of the Pangyo 2nd Techno Valley Enterprise Growth Support Center" />
+              <div class="article-card__tags">
+                <span class="article-card__tag">Operation</span>
+                <span class="article-card__tag">Startup Support</span>
+              </div>
+              <div class="article-card__title-row">
+                <h3>판교 제2테크로밸리 기업성장지원센터 창업지원공간 운영방안 연구</h3>
+                <p class="article-card__subtitle article-card__subtitle--title">Operational Plans for Startup Support Spaces at Pangyo 2nd Techno Valley</p>
+              </div>
+              <div class="works-card__meta">
+                <span>Pangyo, Seongnam, Korea</span>
+                <span>2019</span>
+              </div>
+            </a>
+            <a
+              class="article-card works-card"
+              href="./work-seoul-housing-lab-open-week.html"
+              data-title="Seoul Housing Lab Open Week"
+              data-year="2018"
+              data-area="community"
+              data-role="pm"
+              data-location="seoul"
+              data-state="completed"
+            >
+              <img class="article-card__image" src="./Images/project/prj-housing-lab-openweek.jpg" alt="Entrance of Seoul Housing Lab during Open Week with event signboards and balloons" />
+              <div class="article-card__tags">
+                <span class="article-card__tag">Housing</span>
+                <span class="article-card__tag">Open Week</span>
+              </div>
+              <div class="article-card__title-row">
+                <h3>서울하우징랩 오픈위크</h3>
+                <p class="article-card__subtitle article-card__subtitle--title">Seoul Housing Lab Open Week</p>
+              </div>
+              <div class="works-card__meta">
+                <span>Seoul, Korea</span>
+                <span>2018</span>
+              </div>
+            </a>
+            <a
+              class="article-card works-card"
+              href="./work-ulleungdo-site-selection-advisory.html"
+              data-title="Ulleungdo Research and Site Selection Advisory"
+              data-year="2018"
+              data-area="region-regeneration"
+              data-role="research"
+              data-location="ulleungdo"
+              data-state="completed"
+            >
+              <img class="article-card__image" src="./Images/project/prj-ulneung-research01.jpeg" alt="View across a green coastal village in Ulleungdo with harbor and rock formation in the distance" />
+              <div class="article-card__tags">
+                <span class="article-card__tag">Region Regeneration</span>
+                <span class="article-card__tag">Field Research</span>
+              </div>
+              <div class="article-card__title-row">
+                <h3>울릉도 리서치 및 프로젝트 대상지 선정 자문</h3>
+                <p class="article-card__subtitle article-card__subtitle--title">Advisory on Ulleungdo Research and Project Site Selection</p>
+              </div>
+              <div class="works-card__meta">
+                <span>Ulleung Island, Korea</span>
+                <span>2018</span>
+              </div>
+            </a>
+            <a
+              class="article-card works-card"
+              href="./work-project-huam-website.html"
+              data-title="Project Huam Website Planning"
+              data-year="2018"
+              data-area="project-planning"
+              data-role="pm"
+              data-location="seoul"
+              data-state="completed"
+            >
+              <img class="article-card__image" src="./Images/project/prj-projechuam-webpage.jpg" alt="Panoramic view over Huam-dong in Seoul with dense low-rise neighborhood fabric and distant towers" />
+              <div class="article-card__tags">
+                <span class="article-card__tag">Project Planning</span>
+                <span class="article-card__tag">Website</span>
+              </div>
+              <div class="article-card__title-row">
+                <h3>프로젝트 후암 홈페이지 기획 및 제작</h3>
+                <p class="article-card__subtitle article-card__subtitle--title">Website Planning and Development for Project Huam</p>
+              </div>
+              <div class="works-card__meta">
+                <span>Seoul, Korea</span>
+                <span>2018</span>
+              </div>
+            </a>
+            <a
+              class="article-card works-card"
+              href="./work-magodicasa-brand-identity.html"
+              data-title="Mago di Casa Brand Identity"
+              data-year="2021"
+              data-area="branding"
+              data-role="design"
+              data-location="seoul"
+              data-state="completed"
+            >
+              <img class="article-card__image" src="./Images/project/prj-magodicasa-01.png" alt="Brand identity logo studies for Mago di Casa shown in multiple colorways" />
+              <div class="article-card__tags">
+                <span class="article-card__tag">Branding</span>
+                <span class="article-card__tag">Identity Design</span>
+              </div>
+              <div class="article-card__title-row">
+                <h3>리빙브랜드 마고디까사 브랜드 아이덴티티 디자인</h3>
+                <p class="article-card__subtitle article-card__subtitle--title">Brand Identity Design for the Living Brand ‘Mago di Casa’</p>
+              </div>
+              <div class="works-card__meta">
+                <span>Seoul, Korea</span>
+                <span>2021</span>
+              </div>
+            </a>
+            <a
+              class="article-card works-card"
+              href="./work-jeju-workation-feasibility.html"
+              data-title="Jeju Workation Feasibility Study"
+              data-year="2022"
+              data-area="business-planning"
+              data-role="research"
+              data-location="jeju"
+              data-state="suggestion"
+            >
+              <img class="article-card__image" src="./Images/project/prj-workation-jeju.jpeg" alt="Parking lot and low-rise urban block in old downtown Jeju considered for a workation development project" />
+              <div class="article-card__tags">
+                <span class="article-card__tag">Business Planning</span>
+                <span class="article-card__tag">Research</span>
+              </div>
+              <div class="article-card__title-row">
+                <h3>워케이션 개발 프로젝트 타당성 조사</h3>
+                <p class="article-card__subtitle article-card__subtitle--title">A Feasibility Study for a Workation Development Project</p>
+              </div>
+              <div class="works-card__meta">
+                <span>Jeju, Korea</span>
+                <span>2022</span>
+              </div>
+            </a>
+            <a
+              class="article-card works-card"
+              href="./work-seoul-social-issue-design.html"
+              data-title="Seoul Social Issue Responsive Design"
+              data-year="2022"
+              data-area="environment"
+              data-role="design"
+              data-location="seoul"
+              data-state="suggestion"
+            >
+              <img class="article-card__image" src="./Images/project/prj-seoulforest-recycle.png" alt="Concept design diagram for a recycling station proposed at Seoul Forest" />
+              <div class="article-card__tags">
+                <span class="article-card__tag">Environment</span>
+                <span class="article-card__tag">Design Proposal</span>
+              </div>
+              <div class="article-card__title-row">
+                <h3>서울시 사회이슈 대응형 디자인 개발</h3>
+                <p class="article-card__subtitle article-card__subtitle--title">A Design Development Service for Addressing Social Issues in Seoul</p>
+              </div>
+              <div class="works-card__meta">
+                <span>Seoul, Korea</span>
+                <span>2022</span>
+              </div>
+            </a>
+            <a
+              class="article-card works-card"
+              href="./work-hwaseong-metaverse-festival.html"
+              data-title="Hwaseong Metaverse Festival Research"
+              data-year="2022"
+              data-area="new-media"
+              data-role="research"
+              data-location="gyeonggi"
+              data-state="completed"
+            >
+              <img class="article-card__image" src="./Images/project/prj-hwaseon-metabus.jpeg" alt="Exterior view of Dongtan Bokhap Munhwa Center in Hwaseong" />
+              <div class="article-card__tags">
+                <span class="article-card__tag">New Media</span>
+                <span class="article-card__tag">Research</span>
+              </div>
+              <div class="article-card__title-row">
+                <h3>화성시 메타버스를 활용한 신규 축제 개발 연구</h3>
+                <p class="article-card__subtitle article-card__subtitle--title">A Research Service for the Development of a New Festival Utilizing the Metaverse</p>
+              </div>
+              <div class="works-card__meta">
+                <span>Hwaseong, Gyeonggi, Korea</span>
+                <span>2022</span>
+              </div>
+            </a>
+            <a
+              class="article-card works-card"
               href="./work-oemi-village-cultural-arts.html"
               data-title="Oemi Village Cultural Arts Revitalization"
               data-year="2023"
-              data-tags="culture community asia"
+              data-area="community"
+              data-role="consultation"
+              data-location="gyeonggi"
+              data-state="suggestion"
             >
               <img class="article-card__image" src="./Images/project/prj-oemi-village-00.jpeg" alt="A narrow lane in Oemi Village with overgrown greenery and houses on both sides" />
               <div class="article-card__tags">
@@ -106,7 +416,10 @@
               href="./work-arte-placebased-arts-education.html"
               data-title="Arte Place-Based Arts Education Workshop"
               data-year="2023"
-              data-tags="culture branding asia"
+              data-area="education"
+              data-role="documentation"
+              data-location="seoul"
+              data-state="completed"
             >
               <img class="article-card__image" src="./Images/project/prj-arte-placebased.jpeg" alt="Participants using maps and colored cards during a place-based arts education workshop" />
               <div class="article-card__tags">
@@ -127,7 +440,10 @@
               href="./work-jeju-social-issue-sprint.html"
               data-title="Jeju Social Issue Sprint"
               data-year="2023"
-              data-tags="culture public-space asia"
+              data-area="community"
+              data-role="documentation"
+              data-location="jeju"
+              data-state="completed"
             >
               <img class="article-card__image" src="./Images/project/prj-jeju-sprint-02.jpeg" alt="Participants taking part in a social issue sprint workshop in Jeju" />
               <div class="article-card__tags">
@@ -148,7 +464,10 @@
               href="./work-ansan-movement-school.html"
               data-title="Ansan Movement School"
               data-year="2023"
-              data-tags="culture public-space asia"
+              data-area="community"
+              data-role="documentation"
+              data-location="gyeonggi"
+              data-state="completed"
             >
               <img class="article-card__image" src="./Images/project/prj-ansan-movement.jpeg" alt="Participants gathered during a community workshop in Ansan" />
               <div class="article-card__tags">
