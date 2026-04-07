@@ -302,14 +302,18 @@ body.front-page main {
 }
 
 .works-toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: start;
+  gap: 24px;
+  width: 100%;
   padding-bottom: 16px;
   border-bottom: 1px solid rgba(30, 26, 22, 0.08);
 }
 
 .works-filter-groups {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px 28px;
   align-items: flex-start;
 }
@@ -317,10 +321,9 @@ body.front-page main {
 .works-filter-group {
   display: grid;
   gap: 10px;
-  min-width: 220px;
-  flex: 1 1 220px;
   padding: 18px 0;
   border-top: 1px solid rgba(30, 26, 22, 0.12);
+  transition: background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, padding 180ms ease;
 }
 
 .works-filter-group__label {
@@ -370,6 +373,14 @@ body.front-page main {
 
 .works-filter-group__toggle.is-open .works-filter-group__icon {
   transform: rotate(180deg);
+}
+
+.works-filter-group.is-open {
+  padding: 18px 18px 20px;
+  border: 1px solid rgba(30, 26, 22, 0.12);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 24px rgba(30, 26, 22, 0.06);
 }
 
 .works-filter,
@@ -2723,12 +2734,12 @@ body.front-page [data-reveal].is-visible {
 
   .works-filter-groups {
     display: grid;
+    grid-template-columns: 1fr;
     gap: 0;
   }
 
   .works-filter-group {
     min-width: 0;
-    flex: initial;
   }
 
   .works-toolbar__meta {

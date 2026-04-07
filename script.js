@@ -713,16 +713,20 @@ function setupWorksFilterAccordions() {
   }
 
   worksAccordionTriggers.forEach((trigger) => {
+    const group = trigger.closest(".works-filter-group");
     const panel = trigger.nextElementSibling;
 
-    if (!panel) {
+    if (!panel || !group) {
       return;
     }
+
+    group.classList.toggle("is-open", trigger.getAttribute("aria-expanded") === "true");
 
     trigger.addEventListener("click", () => {
       const isOpen = trigger.getAttribute("aria-expanded") === "true";
       trigger.setAttribute("aria-expanded", isOpen ? "false" : "true");
       trigger.classList.toggle("is-open", !isOpen);
+      group.classList.toggle("is-open", !isOpen);
       panel.hidden = isOpen;
     });
   });
