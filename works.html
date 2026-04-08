@@ -44,12 +44,13 @@
           <div class="works-toolbar" aria-label="Project filters">
             <div class="works-filter-groups">
               <div class="works-filter-group">
-                <button class="works-filter-group__toggle is-open" type="button" data-works-accordion-trigger aria-expanded="true">
+                <button class="works-filter-group__toggle" type="button" data-works-accordion-trigger aria-expanded="false">
                   <span class="works-filter-group__label">Area</span>
                   <span class="works-filter-group__icon" aria-hidden="true">↑</span>
                 </button>
-                <div class="works-filter-list" data-works-accordion-panel>
+                <div class="works-filter-list" data-works-accordion-panel hidden>
                   <button class="works-filter is-active" type="button" data-works-filter-group="area" data-works-filter="all" aria-pressed="true">All projects</button>
+                  <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="campaign" aria-pressed="false">Campaign</button>
                   <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="community" aria-pressed="false">Community</button>
                   <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="content" aria-pressed="false">Content</button>
                   <button class="works-filter" type="button" data-works-filter-group="area" data-works-filter="contribution" aria-pressed="false">Contribution</button>
@@ -89,6 +90,7 @@
                 </button>
                 <div class="works-filter-list" data-works-accordion-panel hidden>
                   <button class="works-filter is-active" type="button" data-works-filter-group="location" data-works-filter="all" aria-pressed="true">All locations</button>
+                  <button class="works-filter" type="button" data-works-filter-group="location" data-works-filter="gunsan" aria-pressed="false">Gunsan</button>
                   <button class="works-filter" type="button" data-works-filter-group="location" data-works-filter="seoul" aria-pressed="false">Seoul</button>
                   <button class="works-filter" type="button" data-works-filter-group="location" data-works-filter="gyeonggi" aria-pressed="false">Gyeonggi</button>
                   <button class="works-filter" type="button" data-works-filter-group="location" data-works-filter="jeju" aria-pressed="false">Jeju</button>
@@ -118,11 +120,35 @@
                   <option value="title">Title A-Z</option>
                 </select>
               </label>
-              <button class="works-clear" type="button" data-works-clear>Clear filters</button>
+              <button class="works-clear" type="button" data-works-clear aria-label="Clear filters">× Clear filters</button>
             </div>
           </div>
 
           <div class="works-grid works-grid--archive" data-works-grid>
+            <a
+              class="article-card works-card"
+              href="./work-im-already-famous-gunsan-workshop.html"
+              data-title="I'm Already Famous Campaign Workshop"
+              data-year="2018"
+              data-area="campaign"
+              data-role="design"
+              data-location="gunsan"
+              data-state="completed"
+            >
+              <video class="article-card__image" src="./video/prj-imalreadyfamous-gunsan.m4v" poster="./Images/project/prj-imalreadfamous-ksnu.png" muted playsinline preload="metadata" aria-label="Campaign workshop video from the I'm Already Famous workshop at Kunsan National University"></video>
+              <div class="article-card__tags">
+                <span class="article-card__tag">Campaign</span>
+                <span class="article-card__tag">Space Atmosphere</span>
+              </div>
+              <div class="article-card__title-row">
+                <h3>캠페인 ‘나는 이미 유명해’ 워크숍 @군산대</h3>
+                <p class="article-card__subtitle article-card__subtitle--title">“I'm Already Famous” Campaign Workshop @ KSNU</p>
+              </div>
+              <div class="works-card__meta">
+                <span>Gunsan, Korea</span>
+                <span>2018</span>
+              </div>
+            </a>
             <a
               class="article-card works-card"
               href="./work-brique-magazine-vol14.html"
