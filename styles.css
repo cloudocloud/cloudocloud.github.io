@@ -2057,6 +2057,11 @@ body.front-page [data-reveal].is-visible {
   line-height: 1.9;
 }
 
+.article-page__body .article-page__body-emphasis {
+  font-size: 1.188rem;
+  font-weight: 800;
+}
+
 .article-page__series-link {
   display: inline-block;
   padding: 0.08em 0.28em;
