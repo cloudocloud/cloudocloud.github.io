@@ -768,6 +768,7 @@ body.front-page .hero {
   margin-right: calc(50% - 50vw);
   margin-top: 0;
   padding-top: 0;
+  background: #f7f3ed;
 }
 
 .front-page__content > section,
@@ -865,6 +866,10 @@ body.front-page .hero {
 
 .mobile-linebreak {
   display: inline;
+}
+
+.mobile-br {
+  display: none;
 }
 
 .slide-copy p:last-child,
@@ -2765,6 +2770,10 @@ body.front-page [data-reveal].is-visible {
 
   .mobile-linebreak {
     display: block;
+  }
+
+  .mobile-br {
+    display: inline;
   }
 
   .slide-copy p:last-child {
