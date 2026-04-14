@@ -774,45 +774,100 @@ function updateParallax() {
   });
 }
 
-function createPins() {
-  const europeBase = [
-    [-0.1276, 51.5072], [2.3522, 48.8566], [4.9041, 52.3676], [13.405, 52.52],
-    [11.582, 48.1351], [16.3738, 48.2082], [14.4378, 50.0755], [21.0122, 52.2297],
-    [18.0686, 59.3293], [10.7522, 59.9139], [12.5683, 55.6761], [24.9384, 60.1699],
-    [18.6435, 60.1282], [6.1432, 46.2044], [8.5417, 47.3769], [9.19, 45.4642],
-    [12.4964, 41.9028], [-3.7038, 40.4168], [2.1734, 41.3851], [-9.1393, 38.7223],
-    [-6.2603, 53.3498], [23.7275, 37.9838], [19.0402, 47.4979], [26.1025, 44.4268],
-    [20.4489, 44.7866], [15.9819, 45.815], [30.5234, 50.4501], [28.9784, 41.0082],
-    [24.7536, 59.437], [25.2797, 54.6872]
-  ];
+const tripsData = [
+  { country: "China",       city: "Hong Kong",   type: "event",      purpose: "festival", year: 2026, lat: 22.3575,  lon: 114.1709  },
+  { country: "France",      city: "Paris",        type: "field trip", purpose: "research", year: 2025, lat: 48.8571,  lon: 2.3514    },
+  { country: "Denmark",     city: "Copenhagen",   type: "field trip", purpose: "research", year: 2025, lat: 55.6771,  lon: 12.5694   },
+  { country: "Norway",      city: "Oslo",         type: "field trip", purpose: "research", year: 2025, lat: 59.9133,  lon: 10.7305   },
+  { country: "Japan",       city: "Tokyo",        type: "event",      purpose: "popup",    year: 2024, lat: 35.6835,  lon: 139.7712  },
+  { country: "China",       city: "Guangzhou",    type: "event",      purpose: "festival", year: 2024, lat: 23.1496,  lon: 113.2465  },
+  { country: "China",       city: "Hong Kong",    type: "field trip", purpose: "research", year: 2024, lat: 22.3575,  lon: 114.1709  },
+  { country: "Korea",       city: "Jeju",         type: "event",      purpose: "popup",    year: 2022, lat: 33.5002,  lon: 126.5304  },
+  { country: "Japan",       city: "Tokyo",        type: "field trip", purpose: "research", year: 2018, lat: 35.6835,  lon: 139.7712  },
+  { country: "China",       city: "Shanghai",     type: "event",      purpose: "popup",    year: 2018, lat: 31.2321,  lon: 121.4464  },
+  { country: "Japan",       city: "Tokyo",        type: "event",      purpose: "festival", year: 2017, lat: 35.6835,  lon: 139.7712  },
+  { country: "Japan",       city: "Tokyo",        type: "event",      purpose: "festival", year: 2017, lat: 35.6835,  lon: 139.7712  },
+  { country: "Japan",       city: "Tokyo",        type: "event",      purpose: "festival", year: 2016, lat: 35.6835,  lon: 139.7712  },
+  { country: "Japan",       city: "Kyoto",        type: "field trip", purpose: "research", year: 2017, lat: 35.0196,  lon: 135.7569  },
+  { country: "Japan",       city: "Tokyo",        type: "field trip", purpose: "research", year: 2016, lat: 35.6835,  lon: 139.7712  },
+  { country: "Korea",       city: "Tongyeong",    type: "event",      purpose: "festival", year: 2023, lat: 34.8543,  lon: 128.4328  },
+  { country: "Korea",       city: "Tongyeong",    type: "event",      purpose: "festival", year: 2024, lat: 34.8543,  lon: 128.4328  },
+  { country: "Korea",       city: "Tongyeong",    type: "event",      purpose: "festival", year: 2025, lat: 34.8543,  lon: 128.4328  },
+  { country: "Korea",       city: "Tongyeong",    type: "event",      purpose: "festival", year: 2026, lat: 34.8543,  lon: 128.4328  },
+  { country: "Korea",       city: "Seoul",        type: "event",      purpose: "festival", year: 2025, lat: 37.5495,  lon: 126.9920  },
+  { country: "Korea",       city: "Incheon",      type: "event",      purpose: "festival", year: 2025, lat: 37.4789,  lon: 126.6443  },
+  { country: "Korea",       city: "Incheon",      type: "event",      purpose: "festival", year: 2025, lat: 37.4789,  lon: 126.6443  },
+  { country: "Korea",       city: "Jeju",         type: "event",      purpose: "festival", year: 2024, lat: 33.5002,  lon: 126.5304  },
+  { country: "Korea",       city: "Busan",        type: "event",      purpose: "festival", year: 2024, lat: 35.1607,  lon: 129.0412  },
+  { country: "Korea",       city: "Seoul",        type: "event",      purpose: "festival", year: 2023, lat: 37.5495,  lon: 126.9920  },
+  { country: "Korea",       city: "Seoul",        type: "event",      purpose: "festival", year: 2023, lat: 37.5495,  lon: 126.9920  },
+  { country: "Japan",       city: "Kyoto",        type: "field trip", purpose: "research", year: 2026, lat: 35.0196,  lon: 135.7569  },
+  { country: "Portugal",    city: "Porto",        type: "field trip", purpose: "research", year: 2024, lat: 41.1637,  lon: -8.6367   },
+  { country: "Portugal",    city: "Guimarães",    type: "field trip", purpose: "research", year: 2024, lat: 41.4428,  lon: -8.3009   },
+  { country: "Portugal",    city: "Braga",        type: "field trip", purpose: "research", year: 2024, lat: 41.5426,  lon: -8.4272   },
+  { country: "Portugal",    city: "Coimbra",      type: "field trip", purpose: "research", year: 2024, lat: 40.2046,  lon: -8.4071   },
+  { country: "Portugal",    city: "Nazaré",       type: "field trip", purpose: "research", year: 2024, lat: 39.6013,  lon: -9.0671   },
+  { country: "Portugal",    city: "Lisboa",       type: "field trip", purpose: "research", year: 2024, lat: 38.7236,  lon: -9.1386   },
+  { country: "Portugal",    city: "Sintra",       type: "field trip", purpose: "research", year: 2024, lat: 38.8039,  lon: -9.3810   },
+  { country: "Portugal",    city: "Cascais",      type: "field trip", purpose: "research", year: 2024, lat: 38.6955,  lon: -9.4299   },
+  { country: "Portugal",    city: "Lagos",        type: "field trip", purpose: "research", year: 2024, lat: 37.1028,  lon: -8.6713   },
+  { country: "Portugal",    city: "Portimão",     type: "field trip", purpose: "research", year: 2024, lat: 37.1353,  lon: -8.5370   },
+  { country: "Portugal",    city: "Albufeira",    type: "field trip", purpose: "research", year: 2024, lat: 37.0903,  lon: -8.2455   },
+  { country: "Portugal",    city: "Faro",         type: "field trip", purpose: "research", year: 2024, lat: 37.0240,  lon: -7.9111   },
+  { country: "Spain",       city: "Sevilla",      type: "field trip", purpose: "research", year: 2024, lat: 37.4001,  lon: -5.9757   },
+  { country: "Spain",       city: "Ronda",        type: "field trip", purpose: "research", year: 2024, lat: 36.7457,  lon: -5.1606   },
+  { country: "Spain",       city: "Malaga",       type: "field trip", purpose: "research", year: 2024, lat: 36.7131,  lon: -4.4521   },
+  { country: "Spain",       city: "Nerja",        type: "field trip", purpose: "research", year: 2024, lat: 36.7566,  lon: -3.8731   },
+  { country: "Spain",       city: "Granada",      type: "field trip", purpose: "research", year: 2024, lat: 37.1837,  lon: -3.6074   },
+  { country: "Spain",       city: "Murcia",       type: "field trip", purpose: "research", year: 2024, lat: 37.9898,  lon: -1.1324   },
+  { country: "Spain",       city: "Cartagena",    type: "field trip", purpose: "research", year: 2024, lat: 37.6265,  lon: -0.9947   },
+  { country: "Spain",       city: "Valencia",     type: "field trip", purpose: "research", year: 2024, lat: 39.4709,  lon: -0.3907   },
+  { country: "Spain",       city: "Madrid",       type: "field trip", purpose: "research", year: 2024, lat: 40.4049,  lon: -3.7249   },
+  { country: "Spain",       city: "Barcelona",    type: "field trip", purpose: "research", year: 2024, lat: 41.3784,  lon: 2.1395    },
+  { country: "France",      city: "Nice",         type: "field trip", purpose: "research", year: 2024, lat: 43.7158,  lon: 7.2617    },
+  { country: "Korea",       city: "Jeju",         type: "field trip", purpose: "research", year: 2021, lat: 33.5002,  lon: 126.5304  },
+  { country: "Korea",       city: "Busan",        type: "field trip", purpose: "research", year: 2021, lat: 35.1607,  lon: 129.0412  },
+  { country: "Korea",       city: "Jeju",         type: "event",      purpose: "workshop", year: 2021, lat: 33.5002,  lon: 126.5304  },
+  { country: "Korea",       city: "Yeosu",        type: "field trip", purpose: "research", year: 2020, lat: 34.7735,  lon: 127.6898  },
+  { country: "Taiwan",      city: "Taipei",       type: "field trip", purpose: "research", year: 2019, lat: 25.0234,  lon: 121.5723  },
+  { country: "Korea",       city: "Buyeo",        type: "field trip", purpose: "research", year: 2019, lat: 36.2844,  lon: 126.9368  },
+  { country: "Korea",       city: "Ulneung",      type: "field trip", purpose: "research", year: 2019, lat: 37.5078,  lon: 130.8604  },
+  { country: "Korea",       city: "Mokpo",        type: "field trip", purpose: "research", year: 2019, lat: 34.8033,  lon: 126.4044  },
+  { country: "Korea",       city: "Mokpo",        type: "field trip", purpose: "research", year: 2019, lat: 34.8033,  lon: 126.4044  },
+  { country: "Korea",       city: "Sokcho",       type: "field trip", purpose: "research", year: 2019, lat: 38.1821,  lon: 128.5432  },
+  { country: "Korea",       city: "Sokcho",       type: "field trip", purpose: "research", year: 2019, lat: 38.1821,  lon: 128.5432  },
+  { country: "Korea",       city: "Gangneung",    type: "field trip", purpose: "research", year: 2018, lat: 37.7599,  lon: 128.9111  },
+  { country: "Korea",       city: "Busan",        type: "field trip", purpose: "research", year: 2018, lat: 35.1607,  lon: 129.0412  },
+  { country: "Korea",       city: "Ulneung",      type: "field trip", purpose: "research", year: 2018, lat: 37.5078,  lon: 130.8604  },
+  { country: "Korea",       city: "Gunsan",       type: "field trip", purpose: "research", year: 2018, lat: 35.9976,  lon: 126.7501  },
+  { country: "Korea",       city: "Gunsan",       type: "event",      purpose: "workshop", year: 2018, lat: 35.9976,  lon: 126.7501  },
+  { country: "Japan",       city: "Takamatsu",    type: "field trip", purpose: "research", year: 2017, lat: 34.3439,  lon: 134.0282  },
+  { country: "Sweden",      city: "Stockholm",    type: "field trip", purpose: "research", year: 2017, lat: 59.3349,  lon: 18.0515   },
+  { country: "Denmark",     city: "Copenhagen",   type: "field trip", purpose: "research", year: 2017, lat: 55.6771,  lon: 12.5694   },
+  { country: "Germany",     city: "Hamburg",      type: "field trip", purpose: "research", year: 2017, lat: 53.5405,  lon: 10.0075   },
+  { country: "Germany",     city: "Münster",      type: "field trip", purpose: "research", year: 2017, lat: 51.9673,  lon: 7.6186    },
+  { country: "Netherlands", city: "Amsterdam",    type: "field trip", purpose: "research", year: 2017, lat: 52.3599,  lon: 4.9395    },
+  { country: "Korea",       city: "Siheung",      type: "field trip", purpose: "research", year: 2017, lat: 37.3850,  lon: 126.7616  },
+  { country: "Korea",       city: "Jeonju",       type: "field trip", purpose: "research", year: 2017, lat: 35.8281,  lon: 127.1127  },
+  { country: "Korea",       city: "Gwangju",      type: "field trip", purpose: "research", year: 2017, lat: 35.1586,  lon: 126.8918  },
+  { country: "Korea",       city: "Suncheon",     type: "field trip", purpose: "research", year: 2017, lat: 34.9678,  lon: 127.5037  },
+  { country: "Korea",       city: "Gwangyang",    type: "field trip", purpose: "research", year: 2017, lat: 34.9825,  lon: 127.6129  },
+  { country: "Japan",       city: "Osaka",        type: "field trip", purpose: "research", year: 2015, lat: 34.6973,  lon: 135.5128  },
+  { country: "Netherlands", city: "Amsterdam",    type: "field trip", purpose: "research", year: 2008, lat: 52.3599,  lon: 4.9395    },
+  { country: "Taiwan",      city: "Taipei",       type: "field trip", purpose: "research", year: 2004, lat: 25.0234,  lon: 121.5723  },
+  { country: "Taiwan",      city: "Taitung",      type: "field trip", purpose: "research", year: 2004, lat: 23.0105,  lon: 121.0204  }
+];
 
-  const seaBase = [
-    [100.5018, 13.7563], [103.8198, 1.3521], [106.8456, -6.2088], [101.6869, 3.139],
-    [105.8342, 21.0278]
-  ];
-
-  const japanBase = [
-    [139.6917, 35.6895], [135.5023, 34.6937], [141.3545, 43.0618]
-  ];
-
-  return [
-    ...europeBase.map(([lon, lat]) => ({ lon, lat, region: "europe" })),
-    ...seaBase.map(([lon, lat]) => ({ lon, lat, region: "sea" })),
-    ...japanBase.map(([lon, lat]) => ({ lon, lat, region: "japan" }))
-  ];
-}
-
-const globePins = createPins();
+const globePins = tripsData;
 
 function setupSatelliteGlobes() {
   if (!globeScenes.length || typeof window.Globe !== "function") {
     return;
   }
 
-  const regionColors = {
-    europe: "#f2a17c",
-    sea: "#ffcf70",
-    japan: "#141414"
+  const typeColors = {
+    "field trip": "#f2a17c",
+    "event": "#ffcf70"
   };
 
   globeScenes.forEach((element) => {
@@ -832,7 +887,7 @@ function setupSatelliteGlobes() {
       .pointAltitude(0.015)
       .pointRadius(0.44)
       .pointResolution(18)
-      .pointColor((d) => regionColors[d.region]);
+      .pointColor((d) => typeColors[d.type]);
 
     const controls = globe.controls();
     controls.autoRotate = true;
