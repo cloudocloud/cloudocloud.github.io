@@ -23,6 +23,8 @@ body {
     linear-gradient(180deg, #f8f4ee 0%, #efe7dd 55%, #e5edf4 100%);
   color: var(--text);
   font-family: "Pretendard", "Manrope", sans-serif;
+  font-size: 16px;
+  line-height: 1.72;
 }
 
 body.about-page {
@@ -135,9 +137,30 @@ body.front-page .site-header.is-solid .contact-button {
 }
 
 .brand {
-  font-size: 1.65rem;
-  font-weight: 800;
-  letter-spacing: -0.05em;
+  display: block;
+  width: 170px;
+  height: 30px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.brand__logo {
+  display: block;
+  width: 170px;
+  height: auto;
+  transform: translateY(calc(-50% + 15px));
+  transition: filter 220ms ease;
+}
+
+/* 밝은 배경 헤더: 흰 로고 → 어두운 로고로 전환 */
+body:not(.front-page) .brand__logo,
+body.front-page .site-header.is-solid .brand__logo {
+  filter: invert(0.882);
+}
+
+/* 어두운 배경 헤더(히어로): 그림자로 가독성 향상 */
+body.front-page .site-header:not(.is-solid) .brand__logo {
+  filter: drop-shadow(0 2px 12px rgba(0, 0, 0, 0.25));
 }
 
 .site-nav {
@@ -569,7 +592,7 @@ body.front-page main {
 .about-document__copy h1 {
   margin: 0;
   font-family: "Pretendard", "Manrope", sans-serif;
-  font-size: 30px;
+  font-size: clamp(1.5rem, 3.5vw, 1.875rem);
   line-height: 0.92;
   letter-spacing: -0.06em;
 }
@@ -587,6 +610,7 @@ body.front-page main {
 
 .about-document__sublead {
   font-size: 1rem;
+  line-height: 1.7;
   letter-spacing: 0.02em;
   margin-top: 8px;
 }
@@ -675,7 +699,7 @@ body.front-page main {
   margin: 0;
   color: var(--subtle);
   font-size: 1.02rem;
-  line-height: 1.25;
+  line-height: 1.72;
 }
 
 .about-document__body {
@@ -1011,7 +1035,7 @@ body.front-page .trip-section {
   margin: 0;
   padding-left: 214px;
   font-family: "Pretendard", "Manrope", sans-serif;
-  font-size: 56px;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
   line-height: 1.152;
   letter-spacing: -0.06em;
   text-wrap: balance;
@@ -1020,7 +1044,7 @@ body.front-page .trip-section {
 .manifesto-section__copy p {
   margin: 0;
   padding-left: 214px;
-  font-size: 50px;
+  font-size: clamp(1.8rem, 4.5vw, 3.125rem);
   line-height: 1.2;
   letter-spacing: -0.04em;
   color: var(--text);
@@ -1783,6 +1807,10 @@ body.front-page [data-reveal].is-visible {
   line-height: 1.8;
 }
 
+.mobile-contact-cta {
+  display: none;
+}
+
 .site-footer {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -1791,7 +1819,7 @@ body.front-page [data-reveal].is-visible {
   max-width: 1380px;
   margin: 34px auto 0;
   padding: 36px 4px 24px;
-  border-top: 1px solid rgba(30, 26, 22, 0.12);
+  border-top: 1px solid rgba(30, 26, 22, 0.06);
 }
 
 .site-footer__lead {
@@ -1911,7 +1939,7 @@ body.front-page [data-reveal].is-visible {
 .footer-column a {
   color: var(--subtle);
   font-size: 0.98rem;
-  line-height: 1.5;
+  line-height: 1.65;
 }
 
 .footer-column a {
@@ -1974,7 +2002,7 @@ body.front-page [data-reveal].is-visible {
 .article-page__subtitle {
   margin: 0;
   color: #3f3832;
-  font-size: 26px;
+  font-size: clamp(1.1rem, 2.8vw, 1.625rem);
   line-height: 1.2;
   letter-spacing: -0.03em;
 }
@@ -2034,7 +2062,7 @@ body.front-page [data-reveal].is-visible {
   margin-top: 12px;
   color: #8d8378;
   font-size: 0.92rem;
-  line-height: 1.5;
+  line-height: 1.65;
 }
 
 .article-page__summary {
@@ -2164,7 +2192,7 @@ body.front-page [data-reveal].is-visible {
 }
 
 .article-page--chosimheon .article-page__title {
-  font-size: 30px;
+  font-size: clamp(1.2rem, 3.2vw, 1.875rem);
   line-height: 1.15;
   letter-spacing: -0.03em;
 }
@@ -2184,7 +2212,7 @@ body.front-page [data-reveal].is-visible {
 }
 
 .article-page--chosimheon .article-page__section h2 {
-  font-size: 28px;
+  font-size: clamp(1.1rem, 2.8vw, 1.75rem);
 }
 
 .article-page--chosimheon .article-page__hero {
@@ -2251,7 +2279,7 @@ body.front-page [data-reveal].is-visible {
 }
 
 .article-page--work-archive .article-page__section h2 {
-  font-size: 28px;
+  font-size: clamp(1.1rem, 2.8vw, 1.75rem);
 }
 
 .article-page--work-archive .article-page__credits .article-page__body {
@@ -2305,7 +2333,7 @@ body.front-page [data-reveal].is-visible {
   margin-top: 10px;
   color: #8d8378;
   font-size: 0.88rem;
-  line-height: 1.45;
+  line-height: 1.6;
 }
 
 .hub-page {
@@ -2692,6 +2720,18 @@ body.front-page [data-reveal].is-visible {
 
   .about-document__image {
     max-width: 420px;
+    transform: none;
+  }
+
+  .about-document__copy h1 {
+    font-size: clamp(1.5rem, 3.5vw, 1.875rem);
+    white-space: normal;
+  }
+}
+
+@media (max-width: 900px) {
+  .works-filter-groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -2702,8 +2742,8 @@ body.front-page [data-reveal].is-visible {
 
   .site-header {
     position: static;
-    grid-template-columns: minmax(0, 1fr) auto;
-    gap: 18px;
+    grid-template-columns: auto 1fr;
+    gap: 14px 20px;
     padding: 20px;
     margin: 0 -14px 18px;
   }
@@ -2719,25 +2759,35 @@ body.front-page [data-reveal].is-visible {
   .brand {
     grid-column: 1;
     grid-row: 1;
+    align-self: center;
   }
 
   .site-nav {
-    grid-column: 1;
-    grid-row: 2;
+    grid-column: 2;
+    grid-row: 1;
+    justify-content: flex-end;
     gap: 14px 20px;
     font-size: 0.94rem;
     align-items: center;
   }
 
   .contact-button {
-    grid-column: 2;
-    grid-row: 2;
+    display: none;
+  }
+
+  .mobile-contact-cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: fit-content;
-    justify-self: end;
-    align-self: center;
-    white-space: nowrap;
-    padding: 11px 19px;
-    font-size: 0.8rem;
+    margin: 0 auto 20px;
+    padding: 14px 24px;
+    border: 1px solid rgba(30, 26, 22, 0.45);
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 700;
   }
 
   .hero {
@@ -2782,16 +2832,6 @@ body.front-page [data-reveal].is-visible {
   .about-panel h2,
   .about-document__copy h1 {
     font-size: clamp(2.4rem, 12vw, 3.5rem);
-  }
-
-  .manifesto-section__copy h2 {
-    font-size: clamp(2.2rem, 8vw, 3.5rem);
-    line-height: 1.152;
-  }
-
-  .manifesto-section__copy p {
-    font-size: clamp(1.8rem, 7vw, 3.125rem);
-    line-height: 1.2;
   }
 
   .slide-copy h1 {
