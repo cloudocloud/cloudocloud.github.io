@@ -2379,8 +2379,7 @@ body.front-page [data-reveal].is-visible {
   margin-top: 28px;
 }
 
-.hub-landing__links a,
-.hub-collection__all {
+.hub-landing__links a {
   display: inline-flex;
   align-items: center;
   width: fit-content;
@@ -2394,9 +2393,7 @@ body.front-page [data-reveal].is-visible {
 }
 
 .hub-landing__links a:hover,
-.hub-landing__links a:focus-visible,
-.hub-collection__all:hover,
-.hub-collection__all:focus-visible {
+.hub-landing__links a:focus-visible {
   background: rgba(255, 255, 255, 0.72);
   transform: translateY(-1px);
 }
